@@ -1,0 +1,289 @@
+/*-------------------------------------------*/
+/* --------- Style for ______ -------------- */
+/* ----------------------------------------- */
+/*
+    Created: 2010-09-03
+    Last edit: 2012-01-28
+	by Adis Kurtalic
+*/
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+@import url('globalForms.css');
+@import url('menu.css');
+@import url('message.css');
+@import url('header.css');
+@import url('globalTables.css');
+@import url('icons.css');
+
+/* ----------------------------------------- */
+/* ------------- Main colors --------------- */
+/* ----------------------------------------- */
+/*
+	#1e68a6
+	#f2f2f2
+	#63bd20
+	#666666
+	
+*/
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+*{
+	margin: 0;
+	padding: 0;
+}
+	a{
+		color: #1e68a6;
+		text-decoration: none;
+	}
+		a:focus {
+			outline: none;
+		} 
+		a:hover{
+			cursor:pointer;
+		}
+		a.sort{
+			color:#666;
+			text-decoration:underline;
+		}
+body{
+	color: #000;
+	margin:0;
+	letter-spacing:0.2px;
+	padding:0;
+	border-top:10px solid #74839C;
+	background-color:#f8f8f8;
+	font: normal 12px "Century Gothic", arial, sans-serif;
+}
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+h1{
+	font-size:16px;
+	color:#333;
+	font-weight:normal;
+	padding:0 0 20px 0;
+}
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+div#wrapper{
+	padding:10px;
+	width:900px;
+	margin:auto;
+}
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+ul.error{list-style:none;}
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+.boldText{font-weight:bold;}
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+div#content{
+	background-color:#fff;
+	position:relative;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-bottom:2px solid #ccc;
+	width:870px;
+	margin:0 auto 0 auto;
+	padding:15px 15px 35px 15px;
+}
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+div#copyText{
+	width:880px;
+	font-size:11px;
+	margin:10px auto 30px auto;
+	padding:0 10px 0 10px;
+	color:#444;
+	height:25px;
+	overflow:auto;
+	line-height:20px;
+}
+	div#copyText div.leftBox{
+		float:left;
+	}
+	div#copyText div.rightBox{
+		float:right;
+		text-align:right;
+	}
+/* ----------------------------------------- */
+/* ------- Table style for My Components --- */
+/* ----------------------------------------- */
+table.myComponents{
+	width:100%;
+	margin:10px 0 0 0;
+}
+	table.myComponents tr{
+	}
+		table.myComponents tr:hover{
+			background-color:#FAFAFA;
+		}
+		table.myComponents tr td{
+			text-align:center;
+			padding:5px 0 5px 0;
+			color:#777;
+		}
+			table.myComponents tr td.what{
+				font-weight:bold;
+				color:#666;
+				text-align:center;
+			}
+				table.myComponents tr:hover td.what{
+					background-color:#fff;
+				}
+			table.myComponents tr td.comment div{
+				position:relative;
+				overflow:visible;
+			}
+				table.myComponents tr td.comment div span{
+					display:none;
+					position:absolute;
+					text-align:left;
+					padding:10px;
+					border-radius:6px;
+					-moz-border-radius:6px;
+					-webkit-border-radius:6px;
+					-moz-box-shadow:0px 0px 5px #111;
+					-webkit-box-shadow:0px 0px 5px #111;
+					top:0;
+					left:-100px;
+				}
+					table.myComponents tr td.comment:hover div span{
+						display:block;
+						width:150px;
+						background-color:#000;
+						color:#fff;
+						position:absolute;
+						top:0;
+						right:0;
+						z-index:10;
+					}
+			table.myComponents tr td.edit a{
+				visibility:hidden;
+			}
+				table.myComponents tr:hover td.edit a{
+					visibility:visible;
+				}
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+.totalSumWrapper{border-top:2px solid #444;padding:10px 0 0 0;font-size:16px;font-weight:bold;}
+/* ----------------------------------------- */
+/* -------- View component tabel ----------- */
+/* ----------------------------------------- */
+table.viewComponent{
+	padding:10px 0 10px 0;
+}
+	table.viewComponent tr{
+	}
+		table.viewComponent tr td{
+			color:#777;
+			height:25px;
+			width:250px;
+		}
+			table.viewComponent tr td.what{
+				font-weight:bold;
+				color:#666;
+				width:120px;
+			}
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+div.componentComment{
+	padding:0 0 15px 10px;
+	color:#666;
+	overflow:hidden;
+	font-style:italic;
+	border-bottom:1px dashed #DEDEDE;
+}
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+div.uploadedImags{border-top:1px dashed #DEDEDE;padding:15px 0 0 0;margin:15px 0 20px 0;text-align:right;}
+	div.uploadedImags ul{list-style:none;}
+		div.uploadedImags ul li{padding:15px;line-height:0;list-style:none;margin:0 0 0 10px;display:inline-block;background-color:#fff;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+		div.uploadedImags ul li:hover{box-shadow:0 0 3px #666;-moz-box-shadow:0 0 3px #666;-webkit-box-shadow:0 0 3px #666;}
+			div.uploadedImags ul li img{max-height:120px;}
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+.submit {
+    background: url(http://electricman.se/php/ecdb/img/button_submit.png) no-repeat;
+    height: 24px;
+    width: 80px;
+    border: none;
+	cursor: pointer;
+}
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+
+.main_category{background-color:#DCDCC3;font-weight:bold;}
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+
+#contact-wrapper {
+	width:430px;
+	border:1px solid #e2e2e2;
+	background:#f1f1f1;
+	padding:20px;
+}
+	#contact-wrapper div {
+		clear:both;
+		margin:1em 0;
+	}
+		#contact-wrapper label {
+			display:block;
+			float:none;
+			font-size:16px;
+			width:auto;
+		}
+			form#contactform input {
+				border-color:#B7B7B7 #E8E8E8 #E8E8E8 #B7B7B7;
+				border-style:solid;
+				border-width:1px;
+				padding:5px;
+				font-size:16px;
+				color:#333;
+			}
+				form#contactform textarea {
+					font-family:Arial, Tahoma, Helvetica, sans-serif;
+					font-size:100%;
+					padding:0.6em 0.5em 0.7em;
+					border-color:#B7B7B7 #E8E8E8 #E8E8E8 #B7B7B7;
+					border-style:solid;
+					border-width:1px;
+				}
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+div.loginWrapper{overflow:auto;}
+div.loginWrapper div.left{float:left;width:620px;}
+div.loginWrapper div.right{float:right;background:url("../img/indexBG.png") no-repeat center 0;width:240px;height:370px;}
+div.loginWrapper div.aboutECDB{margin:0 0 100px 0;}
+
+hr{
+	background-color:#999999;
+	border:0 none;
+	height:1px;
+	margin:10px 0px;
+}
+

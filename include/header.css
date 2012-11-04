@@ -1,0 +1,7 @@
+div#header{width:900px;margin:0 auto 15px auto;height:100px;position:relative;}
+	div#header span.userInfo{color:#666;font-size:12px;text-shadow:0 1px 0 #fff;position:absolute;top:0px;right:0;}
+		div#header span.userInfo a{color:#000;text-decoration:none;}
+	div#header div.searchContent{position:absolute;font-size:12px;top:55px;right:0;color:#666;padding:3px;width:230px;background-color:#fff;border-bottom:2px solid #ccc;border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;}
+		div#header div.searchContent form.search input{border:1px solid #fff !important;font: normal 14px "Century Gothic", arial, sans-serif;background:url("../img/ecdbSpriteV1.png") 209px -140px no-repeat #fff;box-shadow:none;padding:5px 15px 5px 5px;width:200px;}
+div.logoWrapper{position:absolute;top:10px;left:0;}
+	div.logoWrapper a span.logoImage{display:block;width:169px;height:73px;background:url("../img/ecdbSpriteV1.png") no-repeat 0 -5px;}
