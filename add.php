@@ -56,7 +56,7 @@
 		<?php include_once("include/analytics.php") ?>
 
 		</head>
-	<body>
+	<body  onLoad="document.forms.add.name.focus()">
 		<div id="wrapper">
 			
 			<!-- Header -->
@@ -78,7 +78,7 @@
 				?>
 				
 				
-				<form class="globalForms noPadding" action="" method="post">
+				<form class="globalForms noPadding" action="" method="post" id="add">
 					<div class="textBoxInput">
 						<label class="keyWord boldText">Comment</label>
 						<div class="text">
@@ -92,7 +92,7 @@
 									Name
 								</td>
 								<td>
-									<input name="name" id="name" type="text" class="medium" value="<?php if(isset($_POST['submit'])) { echo $_POST['name']; } ?>" />
+									<input name="name" id="name" type="text" class="medium" value="<?php if(isset($_POST['submit'])) { echo $_POST['name']; } ?>" autofocus tabindex="0"/>
 								</td>
 								<td class="boldText">
 									Category
