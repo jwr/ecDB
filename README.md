@@ -69,18 +69,6 @@ Reporting issues is helpful but an even better approach is to send a Pull
 Request, which is done by "Forking" the main repository and committing to your
 own copy. This will require you to use the version control system called Git.
 
-## Branching
-
-ecDB uses two brances, "master" and "develop".
-This requires all pull requests to be sent to the "develop" branch. This is
-where the next planned version will be developed. The "master" branch will
-always contain the latest stable version and is kept clean so a "hotfix" (e.g:
-an emergency security patch) can be applied to master to create a new version,
-without worrying about other features holding it up. For this reason all
-commits need to be made to "develop" and any sent to "master" will be closed
-automatically. If you have multiple changes to submit, please place all
-changes into their own branch on your fork.
-
 One thing at a time: A pull request should only contain one change. That does
 not mean only one commit, but one change - however many commits it took. The
 reason for this is that if you change X and Y but send a pull request for both
