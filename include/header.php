@@ -23,7 +23,7 @@
 	
 	<div class="searchContent">
 		<form class="search" action="search.php" method="get">
-			<input type="text" name="q" />
+			<input type="text" name="q" autofocus/>
 		</form>
 	</div>
 </div>
