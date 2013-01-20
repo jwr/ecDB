@@ -261,6 +261,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `admin` int(11) NOT NULL DEFAULT '0',
   `measurement` int(11) NOT NULL DEFAULT '1',
   `currency` varchar(3) NOT NULL DEFAULT 'USD',
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`member_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1800 ;
 
