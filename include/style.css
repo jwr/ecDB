@@ -100,12 +100,55 @@ div.logoWrapper{position:absolute;top:10px;left:0;}
 div#menu{width:870px;padding:0 15px 0 15px;margin:auto;}
 	div#menu ul{list-style:none;}
 		div#menu ul li{list-style:none;display:inline-block;}
-			div#menu ul li a{display:inline-block;color:#2d2d2d;font-size:12px;text-decoration:none;padding:7px 15px 7px 15px;background-color:#f8f8f8;border-radius:4px 4px 0 0;-moz-border-radius:4px 4px 0 0;-webkit-border-top-left-radius:4px;-webkit-border-top-right-radius:4px;}
-				div#menu ul li a:hover{background-color:#e6e6e6;}
-				div#menu ul li a.selected{background-color:#fff;cursor:default;}
-			div#menu ul li.public a{display:inline-block;color:#707070;font-size:12px;text-decoration:none;padding:7px 15px 7px 15px;background-color:#d7eaff;border-radius:4px 4px 0 0;-moz-border-radius:4px 4px 0 0;-webkit-border-top-left-radius:4px;-webkit-border-top-right-radius:4px;}
-				div#menu ul li.public a:hover{background-color:#e6e6e6;}
-				div#menu ul li.public a.selected{background-color:#fff;cursor:default;color:#000;}
+			div#menu ul li a{
+				text-shadow:0 1px 0 #fff;
+				display:inline-block;
+				color:#2d2d2d;
+				font-size:12px;
+				text-decoration:none;
+				padding:7px 15px 7px 15px;
+				background-color:#f8f8f8;
+				background-image:-moz-linear-gradient(100% 100% 90deg, #e9e9e9, #f8f8f8);
+				background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f8f8f8), to(#e9e9e9));
+				border-radius:4px 4px 0 0;
+				-moz-border-radius:4px 4px 0 0;
+				-webkit-border-top-left-radius:4px;
+				-webkit-border-top-right-radius:4px;
+			}
+				div#menu ul li a:hover{background-image:none;background-color:#e6e6e6;}
+				div#menu ul li a.selected{background-image:none;background-color:#fff;cursor:default;}
+			div#menu ul li.public a{
+				display:inline-block;
+				color:#2d2d2d;
+				font-size:12px;
+				text-decoration:none;
+				padding:7px 15px 7px 15px;
+				background-color:#d7eaff;
+				background-image:-moz-linear-gradient(100% 100% 90deg, #d7eaff, #f8f8f8);
+				background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f8f8f8), to(#d7eaff));
+				border-radius:4px 4px 0 0;
+				-moz-border-radius:4px 4px 0 0;
+				-webkit-border-top-left-radius:4px;
+				-webkit-border-top-right-radius:4px;
+			}
+				div#menu ul li.public a:hover{background-image:none;background-color:#d7eaff;}
+				div#menu ul li.public a.selected{background-image:none;background-color:#fff;color:#000;cursor:default;}
+			div#menu ul li.donate a{
+				display:inline-block;
+				color:#2d2d2d;
+				font-size:12px;
+				text-decoration:none;
+				padding:7px 15px 7px 15px;
+				background-color:#c4ffdb;
+				background-image:-moz-linear-gradient(100% 100% 90deg, #c4ffdb, #f8f8f8);
+				background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f8f8f8), to(#c4ffdb));
+				border-radius:4px 4px 0 0;
+				-moz-border-radius:4px 4px 0 0;
+				-webkit-border-top-left-radius:4px;
+				-webkit-border-top-right-radius:4px;
+			}
+				div#menu ul li.donate a:hover{background-image:none;background-color:#c4ffdb;}
+				div#menu ul li.donate a.selected{background-image:none;background-color:#fff;color:#000;cursor:default;}
 div.subMenu{text-align: center;}
 	div.subMenu ul{list-style:none;margin:0;padding:0 0 10px 0;border-bottom:1px dashed #f2f2f2;}
 		div.subMenu ul li{list-style:none;display:inline-block;margin-bottom: 5px;}
@@ -133,11 +176,10 @@ div.subSubMenu{}
 	#f2f2f2
 	#63bd20
 	#666666
-	
 */
 *{margin: 0;padding: 0;}
 	a{color: #1e68a6;text-decoration: none;}
-		a:focus {outline: none;} 
+		a:focus {outline: none;}
 		a:hover{cursor:pointer;}
 		a.sort{color:#666;text-decoration:underline;}
 body{color: #000;margin:0;letter-spacing:0.2px;padding:0;border-top:10px solid #74839C;background-color:#f8f8f8;font: normal 12px "Century Gothic", arial, sans-serif;}

@@ -6,5 +6,6 @@
 		<li><a href="proj_list.php" class="<?php if ($_SERVER["REQUEST_URI"] == '/proj_list.php' or isset($_GET['proj_id'])){echo 'selected';}?>">Projects</a></li>
 		<li><a href="my.php" class="<?php if ($_SERVER["REQUEST_URI"] == '/my.php'){echo 'selected';}?>">My account</a></li>
 		<li class="public"><a href="public.php" class="<?php if ($_SERVER["REQUEST_URI"] == '/public.php'){echo 'selected';}?>">Public components</a></li>
+		<li class="donate"><a href="donate.php" class="<?php if ($_SERVER["REQUEST_URI"] == '/donate.php'){echo 'selected';}?>">Donate</a></li>
 	</ul>
 </div>
