@@ -44,6 +44,9 @@
 
 		header("Location: .");
 	}
+		if (isset($_POST['wiew_log'])) {
+		header("Location: log.php?component=$id");
+	}
 	
 	if (isset($_POST['based'])) {
 		header("Location: add_based.php?based=$id");
@@ -56,6 +59,11 @@
 		$sql = "UPDATE data SET quantity = '".$quantity_after."' WHERE id = ".$id." ";
 		$sql_exec = mysql_query($sql);
 		header("location: " . $_SERVER['REQUEST_URI']);
+		
+		//log
+		mysql_query("INSERT into log_data (comp_id, owner, log_code, quantity)
+		VALUES
+		('$id', '$owner', '2', '$quantity_after')");
 	}
 	
 	if (isset($_POST['quantity_decrease'])) {
@@ -65,6 +73,11 @@
 		$sql = "UPDATE data SET quantity = '".$quantity_after."' WHERE id = ".$id." ";
 		$sql_exec = mysql_query($sql);
 		header("location: " . $_SERVER['REQUEST_URI']);
+		
+		//log
+		mysql_query("INSERT into log_data (comp_id, owner, log_code, quantity)
+		VALUES
+		('$id', '$owner', '2', '$quantity_after')");
 	}
 	
 	if (isset($_POST['orderquant_increase'])) {
@@ -433,6 +446,7 @@
 						<div class="input">
 							<button class="button" name="edit" type="submit"><span class="icon medium pencil"></span> Edit Component</button>
 							<button class="button" name="based" type="submit"><span class="icon medium sqPlus"></span> New based on this</button>
+							<button class="button" name="wiew_log" type="submit"><span class="icon medium sqPlus"></span> Wiew component log</button>
 							<button class="button red" name="delete" type="submit"><span class="icon medium trash"></span> Delete component</button>
 						</div>
 					</div>
