@@ -712,12 +712,21 @@ class ShowComponents {
 			$url3				=	strip_tags(mysql_real_escape_string($_POST['url3']));
 			$url4				=	strip_tags(mysql_real_escape_string($_POST['url4']));
 			
-
+			
+			$own_comp			=	mysql_query("SELECT * FROM data WHERE owner = $owner AND name = $name");
+			
 			if ($name == '') {
 				echo '<div class="message red">';
 				echo 'You have to specify a name!';
 				echo '</div>';
 			}
+			
+			elseif (!mysql_num_rows($own_comp) == 0){
+				echo '<div class="message red">';
+				echo 'The component already exists. Please choose another name!';
+				echo '</div>';
+			}
+			
 			elseif ($category == '') {
 				echo '<div class="message red">';
 				echo 'You have to choose a category!';
@@ -783,9 +792,14 @@ class ShowComponents {
 					$sql="INSERT into data (owner, name, manufacturer, package, pins, smd, quantity, location, scrap, width, height, depth, weight, datasheet, comment, category, url1, url2, url3, url4, price, public, order_quantity)
 					VALUES
 					('$owner', '$name', '$manufacturer', '$package', '$pins', '$smd', '$quantity', '$location', '$scrap', '$width', '$height', '$depth', '$weight', '$datasheet', '$comment', '$category', '$url1', '$url2', '$url3', '$url4', '$price', '$public', '$order_quantity')";
-
+					
 					$sql_exec = mysql_query($sql) or die(mysql_error());
 					$component_id = mysql_insert_id();
+					
+					
+					mysql_query("INSERT into log_data (comp_id, owner, log_code, quantity)
+					VALUES
+					('$component_id', '$owner', '1', '$quantity')");
 					
 					if (!empty($project) && !empty($project_quantity)) {
 						$proj_add="INSERT into projects_data (projects_data_owner_id, projects_data_project_id, projects_data_component_id, projects_data_quantity)
@@ -835,6 +849,11 @@ class ShowComponents {
 					name = '$name', manufacturer = '$manufacturer', package = '$package', pins = '$pins', smd = '$smd', quantity = '$quantity', location = '$location',	scrap = '$scrap', width = '$width', height = '$height', depth = '$depth', weight = '$weight', datasheet = '$datasheet', comment = '$comment', category = '$category', url1 = '$url1', url2 = '$url2',  url3 = '$url3', url4 = '$url4', price = '$price', public = '$public', order_quantity = '$order_quantity'	WHERE id = '$id'";
 					
 					$sql_exec = mysql_query($sql);
+					
+					//log
+					mysql_query("INSERT into log_data (comp_id, owner, log_code, quantity)
+					VALUES
+					('$id', '$owner', '2', '$quantity')");
 
 					if (!empty($project) && !empty($project_quantity)) {
 						$proj_add="INSERT into projects_data (projects_data_owner_id, projects_data_project_id, projects_data_component_id, projects_data_quantity)

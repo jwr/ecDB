@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 04 nov 2012 kl 15:17
--- Serverversion: 5.5.16
--- PHP-version: 5.2.17
+-- Skapad: 28 jan 2013 kl 16:08
+-- Serverversion: 5.5.24-log
+-- PHP-version: 5.4.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `price` varchar(11) NOT NULL,
   KEY `Id` (`id`),
   KEY `owner` (`owner`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumpning av Data i tabell `data`
@@ -244,6 +244,23 @@ CREATE TABLE IF NOT EXISTS `data` (
 
 INSERT INTO `data` (`id`, `owner`, `name`, `manufacturer`, `package`, `pins`, `smd`, `quantity`, `order_quantity`, `location`, `scrap`, `width`, `height`, `depth`, `weight`, `datasheet`, `comment`, `category`, `public`, `url1`, `url2`, `url3`, `url4`, `price`) VALUES
 (1, 4, '1N4148', 'ST', 'SOT-21', '2', 'No', '100', '20', 'Drawer', 'No', '', '', '', '', '', '', '401', 'Yes', '', '', '', '', '0.001');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `log_data`
+--
+
+CREATE TABLE IF NOT EXISTS `log_data` (
+  `log_id` int(11) NOT NULL AUTO_INCREMENT,
+  `comp_id` int(11) NOT NULL,
+  `log_code` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `owner` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`log_id`),
+  UNIQUE KEY `log_id` (`log_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -269,8 +286,8 @@ CREATE TABLE IF NOT EXISTS `members` (
 -- Dumpning av Data i tabell `members`
 --
 
-INSERT INTO `members` (`member_id`, `firstname`, `lastname`, `login`, `mail`, `passwd`, `admin`, `measurement`, `currency`) VALUES
-(4, 'Demo', 'Demo', 'demo', 'mail@mailen.com', 'fe01ce2a7fbac8fafaed7c982a04e229', 0, 1, 'USD');
+INSERT INTO `members` (`member_id`, `firstname`, `lastname`, `login`, `mail`, `passwd`, `admin`, `measurement`, `currency`, `reg_date`) VALUES
+(4, 'Demo', 'Demo', 'demo', 'mail@mailen.com', 'fe01ce2a7fbac8fafaed7c982a04e229', 0, 1, 'USD', '2013-01-21 05:39:23');
 
 -- --------------------------------------------------------
 
@@ -283,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `members_stats` (
   `members_stats_member` int(11) NOT NULL,
   `members_stats_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`members_stats_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumpning av Data i tabell `members_stats`
@@ -304,14 +321,14 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `project_name` varchar(64) NOT NULL,
   PRIMARY KEY (`project_id`),
   KEY `project_owner` (`project_owner`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumpning av Data i tabell `projects`
 --
 
 INSERT INTO `projects` (`project_id`, `project_owner`, `project_name`) VALUES
-(1, 4, 'Robot');
+(2, 4, 'robot');
 
 -- --------------------------------------------------------
 
@@ -331,13 +348,7 @@ CREATE TABLE IF NOT EXISTS `projects_data` (
   KEY `component_id` (`projects_data_component_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- Dumpning av Data i tabell `projects_data`
---
-
-INSERT INTO `projects_data` (`projects_data_id`, `projects_data_owner_id`, `projects_data_project_id`, `projects_data_component_id`, `projects_data_quantity`) VALUES
-(1, 4, 1, 1, 10);
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

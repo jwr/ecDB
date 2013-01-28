@@ -55,6 +55,11 @@
 		$sql = "UPDATE data SET quantity = '".$quantity_after."' WHERE id = ".$id." ";
 		$sql_exec = mysql_query($sql);
 		header("location: " . $_SERVER['REQUEST_URI']);
+		
+		//log
+		mysql_query("INSERT into log_data (comp_id, owner, log_code, quantity)
+		VALUES
+		('$id', '$owner', '2', '$quantity_after')");
 	}
 	
 	if (isset($_POST['quantity_decrease'])) {
@@ -64,6 +69,11 @@
 		$sql = "UPDATE data SET quantity = '".$quantity_after."' WHERE id = ".$id." ";
 		$sql_exec = mysql_query($sql);
 		header("location: " . $_SERVER['REQUEST_URI']);
+		
+		//log
+		mysql_query("INSERT into log_data (comp_id, owner, log_code, quantity)
+		VALUES
+		('$id', '$owner', '2', '$quantity_after')");
 	}
 	
 	if (isset($_POST['orderquant_increase'])) {
