@@ -21,8 +21,11 @@ class Log {
 			if($row['log_code'] == 1){
 			echo "Created the component";
 			}
-			if($row['log_code'] == 2){
-			echo "restocked the component";
+			if($row['log_code'] == 2 && $before_quantity <= $row['quantity']){
+			echo "Restocked the component";
+			}
+			if($row['log_code'] == 2 && $before_quantity > $row['quantity']){
+			echo "Used the component";
 			}
 			echo "</td>";
 
