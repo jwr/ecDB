@@ -611,7 +611,7 @@ class ShowComponents {
 					else{
 						echo '<a href="';
 						echo $datasheet;
-						echo '"><img src="img/document-pdf-text.png" alt="Download PDF"/></a></td>';
+						echo '"><span class="icon medium document"></span></a></td>';
 					}
 
 					echo "<td>";

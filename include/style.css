@@ -53,10 +53,11 @@ button.button{color:#000;cursor: pointer;font: bold 12px arial, sans-serif;line-
     .red.button{background-color:#ed4145; color:#fff;}
 table.globalTables{width:100%; position:relative;}
     table.globalTables thead tr th{padding:0 0 5px;font-weight:normal;text-transform:uppercase;font-size:11px;border-bottom:2px solid #ccc;}
-    table.globalTables tbody tr{}
+	table.globalTables thead tr th:nth-child(2){text-align:left;}
         table.globalTables tbody tr:hover{background-color:#f5f5f5;}
         table.globalTables.noHover tbody tr:hover{background-color:#fff;}
         table.globalTables tbody tr td{text-align:center;padding:5px 0;line-height:18px;}
+		table.globalTables tbody tr td:nth-child(2){text-align:left;}
         table.globalTables.leftAlign tbody tr td{text-align:left;}
             /* Types ----- */
             table.globalTables tbody tr td.comment div{position:relative;overflow:visible;}
@@ -204,6 +205,8 @@ div.uploadedImags{border-top:1px dashed #DEDEDE;padding:15px 0 0 0;margin:15px 0
 		div.uploadedImags ul li{padding:15px;line-height:0;list-style:none;margin:0 0 0 10px;display:inline-block;background-color:#fff;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
 		div.uploadedImags ul li:hover{box-shadow:0 0 3px #666;-moz-box-shadow:0 0 3px #666;-webkit-box-shadow:0 0 3px #666;}
 			div.uploadedImags ul li img{max-height:120px;}
+div.componentLog{background-color:#f9f9f9;border:1px solid #f2f2f2;padding:15px;margin:15px 0 0 0;border-radius:2px;-moz-border-radius:2px;-wekit-border-radius:2px;}
+
 .submit{background: url(http://electricman.se/php/ecdb/img/button_submit.png) no-repeat;height: 24px;width: 80px;border: none;cursor: pointer;}
 .main_category{background-color:#DCDCC3;font-weight:bold;}
 #contact-wrapper {width:430px;border:1px solid #e2e2e2;background:#f1f1f1;padding:20px;}
