@@ -486,9 +486,35 @@ class ShowComponents {
 				echo '</div>';
 			}
 			else {
-				$sql_exec = mysql_query("SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = '".$owner."'"); 
 
-				$anymatches=mysql_num_rows($sql_exec);
+
+				if (isset($_GET['by'])){
+					$by			=	strip_tags(mysql_real_escape_string($_GET["by"]));
+					$order_q	=	strip_tags(mysql_real_escape_string($_GET["order"]));
+
+					if($order_q == 'desc' or $order_q == 'asc'){
+						$order = $order_q;
+					}
+					else{
+						$order = 'asc';
+					}
+
+					if($by == 'price' or $by == 'pins' or $by == 'quantity') {
+						$SearchQuery = "SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = $owner ORDER by $by +0 $order";
+					}
+					elseif($by == 'name' or $by == 'category' or $by =='package' or $by =='smd' or $by =='manufacturer') {
+						$SearchQuery = "SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = $owner ORDER by $by $order";
+					}
+					else {
+						$SearchQuery = "SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = $owner ORDER by name ASC";
+					}
+				}
+				else{
+					$SearchQuery = "SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = $owner ORDER by name ASC";
+				}
+
+				$sql_exec = mysql_query($SearchQuery);
+				$anymatches = mysql_num_rows($sql_exec);
 				if ($anymatches == 0) {
 					echo '<div class="message red">';
 						echo "Sorry, but we can not find an entry to match your query.";
@@ -594,7 +620,13 @@ class ShowComponents {
 					echo "</td>";
 
 					echo "<td>";
-					echo $showDetails['scrap'];
+					$price = $showDetails['price'];
+						if ($price == ""){
+							echo "-";
+						}
+						else{
+							echo $price;
+						}
 					echo "</td>";
 
 					echo "<td>";
