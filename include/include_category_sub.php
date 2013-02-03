@@ -2,10 +2,11 @@
 class NameSub {
 
 	public function Sub() {
-		
+
 		require_once('include/login/auth.php');
 		include('include/mysql_connect.php');
-		
+		$owner = $_SESSION['SESS_MEMBER_ID'];
+
 		if(isset($_GET['cat'])) {
 			$cat = (int)$_GET['cat'];
 		}
@@ -38,6 +39,16 @@ class NameSub {
 			}
 			echo '>';
 			echo $ShowDetailsSubCatname['name'];
+
+			// Shows if component exists in category
+			$sql_exec_component_catname = mysql_query("SELECT category FROM data WHERE owner = $owner");
+			while($showDetailsComponentCatname = mysql_fetch_array($sql_exec_component_catname)) {
+				if($showDetailsComponentCatname['category'] == $ShowDetailsSubCatname['id']){
+					echo ""; // What should be echoed if components exists in category?
+					break; // We only need one component to be in this category for this to be true.
+				}
+			}
+
 			echo '</a></li> ';
 		}
 	}
