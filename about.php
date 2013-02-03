@@ -38,7 +38,7 @@
 			<div id="content">
 				<div class="loginWrapper">
 					<div class="left">
-						<div class="message orange">
+						<div class="message blue">
 							Check out the new <a href="/blog">ecDB blog.</a> Or follow <a href="https://twitter.com/#!/ecDBnet">@ecDBnet</a> at Twitter to get the latest updates!
 						</div>
 						<h1>What is ecDB?</h1>

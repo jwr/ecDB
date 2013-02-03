@@ -11,7 +11,7 @@
 		<link rel="apple-touch-icon" href="img/apple.png" />
 		<title>Terms & Privacy - ecDB</title>
 		<?php include_once("include/analytics.php") ?>
-		
+
 	<body>
 		<div id="wrapper">
 			<?php
@@ -19,36 +19,25 @@
 					echo '<!-- Header -->';
 						include 'include/header.php';
 					echo '<!-- END -->';
-					
+
 					echo '<!-- Main menu -->';
 						include 'include/menu.php';
 					echo '<!-- END -->';
 				}
 				else {
 					echo '<!-- Header -->';
-					echo '<div id="header">';
-						echo '<div class="logoWrapper">';
-							echo '<a href ="."><span class="logoImage"></span></a>';
-						echo '</div>';
-					echo '</div>';
+						include 'include/header_public.php';
 					echo '<!-- END -->';
-					
+
 					echo '<!-- Main menu -->';
-					echo '<div id="menu">';
-						echo '<ul>';
-							echo '<li><a href=".">Login</a></li>';
-							echo '<li><a href="register.php">Register</a></li>';
-							echo '<li><a href="about.php">About</a></li>';
-							echo '<li><a href="/blog">Blog</a></li>';
-						echo '</ul>';
-					echo '</div>';
+						include 'include/menu_public.php';
 					echo '<!-- END -->';
 				}
 			?>
 			<!-- Main content -->
 			<div id="content">
 				<h1>Terms and Conditions & Privacy Policy</h1>
-				
+
 					<h2>1. Terms</h2>
 
 					By accessing this web site, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trademark law.<br /><br />
@@ -56,20 +45,20 @@
 					<h2>2. Membership</h2>
 
 					As a condition to using the services you are required to register with ecDB. By registering with ecDB you certify that you always provide valid, and updated information, you are an individual (i.e., not a corporate entity) and that you have the legal rights to enter such an agreement. The ID and password (from now referred to as "login-data") is the sole responsibility. It is required that you, as a registered ecDB user maintain the safety of your own login-data.<br /><br />
-					
+
 					ecDB maintains the right to terminate your membership at any time, with or without motivation or warning. All members are responsible for the consequences of use of this website. In cases of conflict with one or more non-members or members, will ecDB not be liable for any damages caused, in the current situation or future, resulting from the conflict.<br /><br />
-					
+
 					As a registered ecDB user you warrant and agree to the fact that you will not contribute any content that (a) infringes, violates or otherwise interferes with any copyright or trademark of another party, (b) reveal any trade secret, unless you own the trade secret or has the owner’s permission to post it, (c) infringes any intellectual property right of another or the privacy or publicity rights of another, (d) is libelous, defamatory, abusive, threatening, harassing, hateful, offensive or otherwise violates any law or right of any third party.<br /><br />
-					
+
 					<h2>3. Disclaimer</h2>
 
 					ecDB reserves all rights and disclaims all liability. ecDB makes no guarantee of reliability, safety or operation of this site.<br />
 					As a registered user, you have full responsibility, without contradiction, for the information you publish and make widely available here.<br /><br />
-					
+
 					<h2>4. Ownership</h2>
-					
+
 					It is strictly forbidden to copy, distribute, or modify any material from ecDB. You may print material for private use. For all other use requires permission from ecDB.<br /><br />
-					
+
 					<h2>5. Site Terms of Use Modifications</h2>
 
 					ecDB may revise these terms of use at any time without notice. By using ecDB you are agreeing to be bound by the then current version of these Terms and Conditions of Use.<br /><br />
@@ -77,9 +66,8 @@
 					<h2>Privacy Policy</h2>
 
 					ecDB handles your personal information in accordance with the European data protection laws.<br /><br />
-					
-					Third parties can get access to all the information you intended to make public through your settings. Your email address or other personal data is NEVER shared by us to third parties.
 
+					Third parties can get access to all the information you intended to make public through your settings. Your email address or other personal data is NEVER shared by us to third parties.
 			</div>
 				<!-- END -->
 				<!-- Text outside the main content -->
