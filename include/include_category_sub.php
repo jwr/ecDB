@@ -37,18 +37,18 @@ class NameSub {
 					echo 'class="selected"';
 				}
 			}
-			echo '>';
-			echo $ShowDetailsSubCatname['name'];
 
 			// Shows if component exists in category
-			$sql_exec_component_catname = mysql_query("SELECT category FROM data WHERE owner = $owner");
+			$sql_exec_component_catname = mysql_query("SELECT category FROM data WHERE owner = $owner"); // Get the category ID from all components.
 			while($showDetailsComponentCatname = mysql_fetch_array($sql_exec_component_catname)) {
-				if($showDetailsComponentCatname['category'] == $ShowDetailsSubCatname['id']){
-					echo ""; // What should be echoed if components exists in category?
+				if($showDetailsComponentCatname['category'] == $ShowDetailsSubCatname['id']){ // Compare current category ID with components category ID.
+					echo ' class="isComponents"'; // What should be echoed if components exists in category?
 					break; // We only need one component to be in this category for this to be true.
 				}
 			}
 
+			echo '>';
+				echo $ShowDetailsSubCatname['name'];
 			echo '</a></li> ';
 		}
 	}
