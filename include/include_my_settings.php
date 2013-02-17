@@ -19,7 +19,8 @@ class My {
 			$newpass			=	strip_tags(mysql_real_escape_string($_POST['newpass']));
 			
 			$measurement		=	strip_tags(mysql_real_escape_string($_POST['measurement']));
-			$currency			=	strip_tags(mysql_real_escape_string($_POST['currency']));			
+			$currency			=	strip_tags(mysql_real_escape_string($_POST['currency']));	
+			$auto_complete		=	strip_tags(mysql_real_escape_string($_POST['auto_complete']));			
 
 			if ($firstname == '') {
 				echo '<div class="message red">';
@@ -78,11 +79,11 @@ class My {
 			}
 			else {
 				if (!empty($oldpass) && !empty($newpass)) {
-					$sql="UPDATE members SET firstname = '$firstname', lastname = '$lastname', mail = '$mail', passwd = '".md5($newpass)."', measurement = '$measurement', currency = '$currency' WHERE member_id = '$owner'";
+					$sql="UPDATE members SET firstname = '$firstname', lastname = '$lastname', mail = '$mail', passwd = '".md5($newpass)."', measurement = '$measurement', currency = '$currency', auto_complete = '$auto_complete' WHERE member_id = '$owner'";
 					$sql_exec = mysql_query($sql);
 				}
 				else {
-					$sql="UPDATE members SET firstname = '$firstname', lastname = '$lastname', mail = '$mail', measurement = '$measurement', currency = '$currency' WHERE member_id = '$owner'";
+					$sql="UPDATE members SET firstname = '$firstname', lastname = '$lastname', mail = '$mail', measurement = '$measurement', currency = '$currency', auto_complete = '$auto_complete' WHERE member_id = '$owner'";
 					$sql_exec = mysql_query($sql);
 				}
 
