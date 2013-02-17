@@ -713,20 +713,12 @@ class ShowComponents {
 			$url4				=	strip_tags(mysql_real_escape_string($_POST['url4']));
 			
 			
-			$own_comp			=	mysql_query("SELECT * FROM data WHERE owner = $owner AND name = $name");
-			
 			if ($name == '') {
 				echo '<div class="message red">';
 				echo 'You have to specify a name!';
 				echo '</div>';
 			}
-			
-			elseif (!mysql_num_rows($own_comp) == 0){
-				echo '<div class="message red">';
-				echo 'The component already exists. Please choose another name!';
-				echo '</div>';
-			}
-			
+
 			elseif ($category == '') {
 				echo '<div class="message red">';
 				echo 'You have to choose a category!';
