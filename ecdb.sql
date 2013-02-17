@@ -261,6 +261,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `admin` int(11) NOT NULL DEFAULT '0',
   `measurement` int(11) NOT NULL DEFAULT '1',
   `currency` varchar(3) NOT NULL DEFAULT 'USD',
+  `auto_complete` varchar(6) NOT NULL DEFAULT 'all',
   PRIMARY KEY (`member_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1800 ;
 
@@ -268,8 +269,8 @@ CREATE TABLE IF NOT EXISTS `members` (
 -- Dumpning av Data i tabell `members`
 --
 
-INSERT INTO `members` (`member_id`, `firstname`, `lastname`, `login`, `mail`, `passwd`, `admin`, `measurement`, `currency`) VALUES
-(4, 'Demo', 'Demo', 'demo', 'mail@mailen.com', 'fe01ce2a7fbac8fafaed7c982a04e229', 0, 1, 'USD');
+INSERT INTO `members` (`member_id`, `firstname`, `lastname`, `login`, `mail`, `passwd`, `admin`, `measurement`, `currency`, `auto_complete`) VALUES
+(4, 'Demo', 'Demo', 'demo', 'mail@mailen.com', 'fe01ce2a7fbac8fafaed7c982a04e229', 0, 1, 'USD', 'all');
 
 -- --------------------------------------------------------
 
