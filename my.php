@@ -148,6 +148,36 @@
 									</select>
 								</td>
 							</tr>
+							<tr>
+								<td class="boldText">
+									Auto complete 
+								</td>
+								<td>
+									<select name="auto_complete">
+										<option value="user" 
+										<?php
+											if(!isset($_POST['submit']) && $executesql['auto_complete'] == 'user') {
+												echo 'selected';
+											}
+											if(isset($_POST['submit']) && $_POST['auto_complete'] == 'user') {
+												echo 'selected';
+											}
+										?>
+										>Users database</option>
+										
+										<option value="all" 
+										<?php
+											if(!isset($_POST['submit']) && $executesql['auto_complete'] == 'all') {
+												echo 'selected';
+											}
+											if(isset($_POST['submit']) && $_POST['auto_complete'] == 'all') {
+												echo 'selected';
+											}
+										?>
+										>The whole database</option>
+									</select>
+								</td>
+							</tr>
 							<!--
 							<tr>
 								<td class="boldText">
