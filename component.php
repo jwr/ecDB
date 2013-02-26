@@ -2,14 +2,14 @@
 	require_once('include/login/auth.php');
 	include('include/mysql_connect.php');
 	require_once('include/debug.php');
-	
-	$owner = $_SESSION['SESS_MEMBER_ID'];
-	
-	$id = (int)$_GET['view'];
+
+	$owner 	= 	$_SESSION['SESS_MEMBER_ID'];
+	$id 	= 	(int)$_GET['view'];
+
 	$GetDataComponent = mysql_query("SELECT * FROM data WHERE id = ".$id." AND owner = ".$owner."");
 	$executesql = mysql_fetch_assoc($GetDataComponent);
 	
-	$GetPersonal = mysql_query("SELECT currency FROM members WHERE member_id = ".$owner."");
+	$GetPersonal = mysql_query("SELECT currency, measurement FROM members WHERE member_id = ".$owner."");
 	$personal = mysql_fetch_assoc($GetPersonal);
 	
 	if ($executesql['owner'] !== $owner) {

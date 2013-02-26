@@ -11,7 +11,25 @@
 		<link rel="apple-touch-icon" href="img/apple.png" />
 		<title>Register - ecDB</title>
 		<?php include_once("include/analytics.php") ?>
-		
+    
+    <script type="text/javascript">
+    var a = Math.ceil(Math.random() * 10);
+    var b = Math.ceil(Math.random() * 10);       
+    var c = a + b
+    function DrawBotBoot()
+    {
+        document.write("What is "+ a + " + " + b +"? ");
+        document.write("<div class='input'><input id='BotBootInput' type='text' maxlength='2' size='2'/></div>");
+    }    
+    function ValidBotBoot(){
+        var d = document.getElementById('BotBootInput').value;
+        if (d == c) return true;
+        else
+            alert("Check the captcha again!");
+        return false;
+        
+    }
+    </script>
 	</head>
 	
 	<body>
@@ -60,7 +78,7 @@
 							We want to change that for you by making a online inventory system for your electronic components that is easy to use. 
 							Add your components. Search to find it, and then use it!
 						</div>
-						<form class="globalForms" name="loginForm" method="post" action="register-exec.php">
+						<form class="globalForms" name="loginForm" method="post" action="register-exec.php" onsubmit="return ValidBotBoot()">
 							<div class="textInput">
 								<label class="keyWord">First name</label>
 								<div class="input"><input name="fname" type="text" class="medium" id="fname" /></div>
@@ -84,6 +102,11 @@
 							<div class="textInput">
 								<label class="keyWord">Repeat password</label>
 								<div class="input"><input name="cpassword" type="password" class="medium" id="cpassword" onpaste="return false;" /></div>
+							</div>
+                                                    <div class="textInput">
+								<label class="keyWord">Captcha</label>
+                                                                
+                                                                    <script type="text/javascript">DrawBotBoot()</script>
 							</div>
 							<div class="buttons">
 								By registering you accept the <a href="terms.php">Terms and Contidions.</a><br><br>

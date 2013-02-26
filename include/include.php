@@ -4,36 +4,36 @@ class ShowComponents {
 
 		require_once('login/auth.php');
 		include('mysql_connect.php');
-		
+
 		$owner = $_SESSION['SESS_MEMBER_ID'];
-		
+
 		if(isset($_GET['by'])) {
-		
+
 			$by			=	strip_tags(mysql_real_escape_string($_GET["by"]));
 			$order_q	=	strip_tags(mysql_real_escape_string($_GET["order"]));
-			
+
 			if($order_q == 'desc' or $order_q == 'asc'){
 				$order = $order_q;
 			}
 			else{
 				$order = 'asc';
 			}
-			
+
 			if($by == 'price' or $by == 'pins' or $by == 'quantity') {
-				$GetDataComponentsAll = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by ".$by." +0 ".$order."";
+				$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by ".$by." +0 ".$order."";
 			}
-			elseif($by == 'name' or $by == 'category' or $by == 'manufacturer' or $by =='package' or $by =='smd') {
-				$GetDataComponentsAll = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by ".$by." ".$order."";
+			elseif($by == 'name' or $by == 'category' or $by =='package' or $by =='smd') {
+				$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by ".$by." ".$order."";
 			}
 			else {
-				$GetDataComponentsAll = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by name ASC";
+				$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by name ASC";
 			}
 		}
 		else {
-			$GetDataComponentsAll = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by name ASC";
+			$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by name ASC";
 		}
-		
-		
+
+
 		$sql_exec = mysql_Query($GetDataComponentsAll);
 		while($showDetails = mysql_fetch_array($sql_exec)) {
 			echo "<tr>";
@@ -50,7 +50,7 @@ class ShowComponents {
 			echo "</a></td>";
 
 			echo "<td>";
-			
+
 				if ($showDetails['category'] < 999) {
 					$head_cat_id = substr($showDetails['category'], -3, 1);
 				}
@@ -58,25 +58,15 @@ class ShowComponents {
 					$head_cat_id = substr($showDetails['category'], -4, 2);
 				}
 				$subcatid = $showDetails['category'];
-				
+
 				$CategoryName = "SELECT * FROM category_head WHERE id = ".$head_cat_id."";
 				$sql_exec_catname = mysql_Query($CategoryName);
-			
+
 				while($showDetailsCat = mysql_fetch_array($sql_exec_catname)) {
 					$catname = $showDetailsCat['name'];
 				}
-				
-			echo $catname;
-			echo "</td>";
-			
-			echo "<td>";
-			$manufacturer = $showDetails['manufacturer'];
-				if ($manufacturer == ""){
-					echo "-";
-				}
-				else{
-					echo $manufacturer;
-				}
+
+			echo "<a href='category.php?cat=$head_cat_id'>$catname</a>";
 			echo "</td>";
 
 			echo "<td>";
@@ -98,13 +88,13 @@ class ShowComponents {
 					echo $pins;
 				}
 			echo "</td>";
-			
+
 			echo '<td>';
 			$image = $showDetails['url1'];
 			if ($image==""){
 				echo "-";
 			}
-			
+
 			else{
 				echo '<a class="thumbnail" href="';
 				echo $image;
@@ -112,13 +102,13 @@ class ShowComponents {
 				echo $image;
 				echo '" /></span></a></td>';
 			}
-			
+
 			echo '<td>';
 			$datasheet = $showDetails['datasheet'];
 			if ($datasheet==""){
 				echo "-";
 			}
-			
+
 			else{
 				echo '<a href="';
 				echo $datasheet;
@@ -175,45 +165,45 @@ class ShowComponents {
 		include('include/mysql_connect.php');
 
 		$owner = $_SESSION['SESS_MEMBER_ID'];
-		
+
 		if(isset($_GET['cat'])) {
-		
+
 			$cat = (int)$_GET['cat'];
 			$subcatfrom = $cat*100;
 			$subcatto = $subcatfrom+99;
-			
+
 
 			$CategoryName = "SELECT * FROM category_sub WHERE id = ".$cat."";
 			$sql_exec_catname = mysql_Query($CategoryName);
 
 			if(isset($_GET['by'])) {
-				
+
 				$by			=	strip_tags(mysql_real_escape_string($_GET["by"]));
 				$order_q	=	strip_tags(mysql_real_escape_string($_GET["order"]));
-				
+
 				if($order_q == 'desc' or $order_q == 'asc') {
 					$order = $order_q;
 				}
 				else {
 					$order = 'asc';
 				}
-				
+
 				if($by == 'price' or $by == 'pins' or $by == 'quantity') {
-					$ComponentsCategory = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by ".$by." +0 ".$order."";
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by ".$by." +0 ".$order."";
 				}
-				elseif($by == 'name' or $by == 'category' or $by == 'manufacturer' or $by =='package' or $by =='smd') {
-					$ComponentsCategory = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by ".$by." ".$order."";
+				elseif($by == 'name' or $by == 'category' or $by =='package' or $by =='smd') {
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by ".$by." ".$order."";
 				}
 				else {
-					$ComponentsCategory = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by name ASC";
-				}	
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by name ASC";
+				}
 			}
 			else {
-				$ComponentsCategory = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by name ASC";
+				$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by name ASC";
 			}
-			
+
 			$sql_exec_component = mysql_Query($ComponentsCategory);
-			
+
 			while ($showDetails = mysql_fetch_array($sql_exec_component)) {
 				echo "<tr>";
 
@@ -232,23 +222,12 @@ class ShowComponents {
 
 				$CategoryName = "SELECT * FROM category_sub WHERE id = ".$subcatid."";
 				$sql_exec_catname = mysql_Query($CategoryName);
-			
+
 				while($showDetailsCat = mysql_fetch_array($sql_exec_catname)) {
 					$catname = $showDetailsCat['name'];
-				}			
-				
-				echo $catname;
+				}
 
-				echo "</td>";
-
-				echo "<td>";
-				$manufacturer = $showDetails['manufacturer'];
-					if ($manufacturer == ""){
-						echo "-";
-					}
-					else{
-						echo $manufacturer;
-					}
+				echo "<a href='category.php?subcat=$subcatid'>$catname</a>";
 				echo "</td>";
 
 				echo "<td>";
@@ -260,7 +239,7 @@ class ShowComponents {
 						echo $package;
 					}
 				echo "</td>";
-				
+
 				echo "<td>";
 				$pins = $showDetails['pins'];
 					if ($pins == ""){
@@ -270,7 +249,7 @@ class ShowComponents {
 						echo $pins;
 					}
 				echo "</td>";
-				
+
 				echo '<td>';
 				$image = $showDetails['url1'];
 				if ($image==""){
@@ -283,7 +262,7 @@ class ShowComponents {
 					echo $image;
 					echo '" /></span></a></td>';
 				}
-				
+
 				echo '<td>';
 				$datasheet = $showDetails['datasheet'];
 				if ($datasheet==""){
@@ -342,40 +321,40 @@ class ShowComponents {
 
 
 		if(isset($_GET['subcat'])) {
-		
+
 			$subcat = (int)$_GET['subcat'];
 
 			$CategoryName = "SELECT * FROM category_sub WHERE id = ".$subcat."";
 			$sql_exec_catname = mysql_Query($CategoryName);
-			
+
 			if(isset($_GET['by'])) {
-			
+
 				$by			=	strip_tags(mysql_real_escape_string($_GET["by"]));
 				$order_q	=	strip_tags(mysql_real_escape_string($_GET["order"]));
-				
+
 				if($order_q == 'desc' or $order_q == 'asc') {
 					$order = $order_q;
 				}
 				else {
 					$order = 'asc';
 				}
-				
+
 				if($by == 'price' or $by == 'pins' or $by == 'quantity') {
-					$ComponentsCategory = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by ".$by." +0 ".$order."";
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by ".$by." +0 ".$order."";
 				}
-				elseif($by == 'name' or $by == 'category' or $by == 'manufacturer' or $by =='package' or $by =='smd') {
-					$ComponentsCategory = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by ".$by." ".$order."";
+				elseif($by == 'name' or $by == 'category' or $by =='package' or $by =='smd') {
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by ".$by." ".$order."";
 				}
 				else {
-					$ComponentsCategory = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by name ASC";
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by name ASC";
 				}
 			}
 			else{
-				$ComponentsCategory = "SELECT id, name, category, manufacturer, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by name ASC";
+				$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, url1, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by name ASC";
 			}
 
 			$sql_exec_component = mysql_Query($ComponentsCategory);
-			
+
 			while ($showDetails = mysql_fetch_array($sql_exec_component)) {
 				echo "<tr>";
 
@@ -394,16 +373,6 @@ class ShowComponents {
 						$catname = $showDetailsCat['name'];
 					}
 					echo $catname;
-				echo "</td>";
-
-				echo "<td>";
-				$manufacturer = $showDetails['manufacturer'];
-					if ($manufacturer == ""){
-						echo "-";
-					}
-					else{
-						echo $manufacturer;
-					}
 				echo "</td>";
 
 				echo "<td>";
@@ -496,35 +465,61 @@ class ShowComponents {
 		}
 	}
 	public function Search() {
-	
+
 		if(isset($_GET['q'])) {
-		
+
 			require_once('include/login/auth.php');
 			include('include/mysql_connect.php');
-			
+
 			$owner = $_SESSION['SESS_MEMBER_ID'];
-			
+
 			$query = mysql_real_escape_string($_GET['q']);
-			
-			$query1 = strtoupper($query); 
-			$query2 = strip_tags($query1); 
-			$find = trim($query2); 
-			
-			
-			if ($find == "") { 
+
+			$query1 = strtoupper($query);
+			$query2 = strip_tags($query1);
+			$find = trim($query2);
+
+
+			if ($find == "") {
 				echo '<div class="message red">';
-					echo "You forgot to enter a search term."; 
+					echo "You forgot to enter a search term.";
 				echo '</div>';
 			}
 			else {
-				$sql_exec = mysql_query("SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = '".$owner."'"); 
-				
-				$anymatches=mysql_num_rows($sql_exec); 
-				if ($anymatches == 0) { 
+
+
+				if (isset($_GET['by'])){
+					$by			=	strip_tags(mysql_real_escape_string($_GET["by"]));
+					$order_q	=	strip_tags(mysql_real_escape_string($_GET["order"]));
+
+					if($order_q == 'desc' or $order_q == 'asc'){
+						$order = $order_q;
+					}
+					else{
+						$order = 'asc';
+					}
+
+					if($by == 'price' or $by == 'pins' or $by == 'quantity') {
+						$SearchQuery = "SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = $owner ORDER by $by +0 $order";
+					}
+					elseif($by == 'name' or $by == 'category' or $by =='package' or $by =='smd' or $by =='manufacturer') {
+						$SearchQuery = "SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = $owner ORDER by $by $order";
+					}
+					else {
+						$SearchQuery = "SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = $owner ORDER by name ASC";
+					}
+				}
+				else{
+					$SearchQuery = "SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = $owner ORDER by name ASC";
+				}
+
+				$sql_exec = mysql_query($SearchQuery);
+				$anymatches = mysql_num_rows($sql_exec);
+				if ($anymatches == 0) {
 					echo '<div class="message red">';
 						echo "Sorry, but we can not find an entry to match your query.";
 					echo '</div>';
-				} 
+				}
 
 				while($showDetails = mysql_fetch_array($sql_exec)) {
 					echo "<tr>";
@@ -548,14 +543,14 @@ class ShowComponents {
 							$head_cat_id = substr($showDetails['category'], -4, 2);
 						}
 						$subcatid = $showDetails['category'];
-						
+
 						$CategoryName = "SELECT * FROM category_head WHERE id = ".$head_cat_id."";
 						$sql_exec_catname = mysql_Query($CategoryName);
-					
+
 						while($showDetailsCat = mysql_fetch_array($sql_exec_catname)) {
 							$catname = $showDetailsCat['name'];
 						}
-						
+
 					echo $catname;
 					echo "</td>";
 
@@ -594,7 +589,7 @@ class ShowComponents {
 					if ($image==""){
 						echo "-";
 					}
-					
+
 					else{
 						echo '<a class="thumbnail" href="';
 						echo $image;
@@ -611,7 +606,7 @@ class ShowComponents {
 					else{
 						echo '<a href="';
 						echo $datasheet;
-						echo '"><img src="img/document-pdf-text.png" alt="Download PDF"/></a></td>';
+						echo ' target="_blank""><span class="icon medium document"></span></a></td>';
 					}
 
 					echo "<td>";
@@ -625,7 +620,13 @@ class ShowComponents {
 					echo "</td>";
 
 					echo "<td>";
-					echo $showDetails['scrap'];
+					$price = $showDetails['price'];
+						if ($price == ""){
+							echo "-";
+						}
+						else{
+							echo $price;
+						}
 					echo "</td>";
 
 					echo "<td>";
@@ -645,52 +646,52 @@ class ShowComponents {
 					}
 					echo "</tr>";
 				}
-			}			
+			}
 		}
 	}
 	public function Add() {
-		
+
 		require_once('include/login/auth.php');
 		include('include/mysql_connect.php');
-		
+
 		if(isset($_POST['submit']) or isset($_POST['update'])) {
 			$owner				=	$_SESSION['SESS_MEMBER_ID'];
-			
+
 			if (empty($_GET['edit'])) {
 				$id				=	'';
 			}
 			else{
 				$id				= 	(int)$_GET['edit'];
 			}
-			
+
 			if (empty($_POST['name'])) {
 				$name = '';
 			}
 			else{
 				$name			=	strip_tags(mysql_real_escape_string($_POST['name']));
 			}
-			
+
 			if (empty($_POST['quantity'])) {
 				$quantity = 0;
 			}
 			else{
 				$quantity			=	str_replace(',', '.', strip_tags(mysql_real_escape_string($_POST['quantity'])));
 			}
-			
+
 			if (empty($_POST['category'])) {
 				$category = '';
 			}
 			else{
 				$category		=	strip_tags(mysql_real_escape_string($_POST['category']));
 			}
-			
+
 			if (empty($_POST['project'])) {
 				$project = '';
 			}
 			else{
 				$project		=	strip_tags(mysql_real_escape_string($_POST['project']));
 			}
-			
+
 			$comment			=	strip_tags(mysql_real_escape_string($_POST['comment']));
 			$order_quantity		=	str_replace(',', '.', strip_tags(mysql_real_escape_string($_POST['orderquant'])));
 			$project_quantity	=	str_replace(',', '.', strip_tags(mysql_real_escape_string($_POST['projquant'])));
@@ -711,7 +712,7 @@ class ShowComponents {
 			$url2				=	strip_tags(mysql_real_escape_string($_POST['url2']));
 			$url3				=	strip_tags(mysql_real_escape_string($_POST['url3']));
 			$url4				=	strip_tags(mysql_real_escape_string($_POST['url4']));
-			
+
 
 			if ($name == '') {
 				echo '<div class="message red">';
@@ -786,18 +787,18 @@ class ShowComponents {
 
 					$sql_exec = mysql_query($sql) or die(mysql_error());
 					$component_id = mysql_insert_id();
-					
+
 					if (!empty($project) && !empty($project_quantity)) {
 						$proj_add="INSERT into projects_data (projects_data_owner_id, projects_data_project_id, projects_data_component_id, projects_data_quantity)
 							VALUES
 							('$owner', '$project', '$component_id', '$project_quantity')";
-							
+
 						$sql_exec = mysql_query($proj_add);
 					}
 
 					/*------------------------------------------------------------------------------------------
 					$proj =	$_POST['project'];
-					
+
 					foreach ($proj as $quantity){
 						$project = array_search($quantity, $proj);
 						//echo $quantity;	// Quantity
@@ -811,14 +812,14 @@ class ShowComponents {
 							$proj_add="INSERT into projects_data (owner_id, project_id, component_id, quantity)
 							VALUES
 							('$owner', '$project', '$component_id', '$quantity')";
-							
+
 							$sql_exec = mysql_query($proj_add);
-							
+
 							echo 'Inserted';
 						}
 					}
 					------------------------------------------------------------------------------------------*/
-			
+
 					echo '<div class="message green center">';
 					echo 'Component added! - <a href="component.php?view=';
 					echo $component_id;
@@ -829,18 +830,18 @@ class ShowComponents {
 					echo ')</a>';
 					echo '</div>';
 				}
-				
+
 				if(isset($_POST['update'])) {
-					$sql = "UPDATE data SET 
+					$sql = "UPDATE data SET
 					name = '$name', manufacturer = '$manufacturer', package = '$package', pins = '$pins', smd = '$smd', quantity = '$quantity', location = '$location',	scrap = '$scrap', width = '$width', height = '$height', depth = '$depth', weight = '$weight', datasheet = '$datasheet', comment = '$comment', category = '$category', url1 = '$url1', url2 = '$url2',  url3 = '$url3', url4 = '$url4', price = '$price', public = '$public', order_quantity = '$order_quantity'	WHERE id = '$id'";
-					
+
 					$sql_exec = mysql_query($sql);
 
 					if (!empty($project) && !empty($project_quantity)) {
 						$proj_add="INSERT into projects_data (projects_data_owner_id, projects_data_project_id, projects_data_component_id, projects_data_quantity)
 							VALUES
 							('$owner', '$project', '$id', '$project_quantity')";
-							
+
 						$sql_exec = mysql_query($proj_add) or die(mysql_error());
 						echo $project;
 						echo ' Owner ';
@@ -850,15 +851,15 @@ class ShowComponents {
 						echo ' projquant ';
 						echo $project_quantity;
 					}
-					
+
 					if (isset($_POST['projquantedit'])) {
 						$proj =	$_POST['projquantedit'];
-					
+
 						foreach ($proj as $quantity_proj_add){
 							$projects = array_search($quantity_proj_add, $proj);
 							$sqlDeleteProject = "DELETE FROM projects_data WHERE projects_data_component_id = '$id' AND projects_data_project_id = '$projects'";
 							$sql_exec_project_delete = mysql_query($sqlDeleteProject);
-							
+
 							if ($quantity_proj_add == 0){
 								echo 'None';
 							}
@@ -866,9 +867,9 @@ class ShowComponents {
 								$proj_edit="INSERT into projects_data (projects_data_owner_id, projects_data_project_id, projects_data_component_id, projects_data_quantity)
 								VALUES
 								('$owner', '$projects', '$id', '$quantity_proj_add')";
-								
+
 								$sql_exec = mysql_query($proj_edit);
-								
+
 								/*
 								echo 'Projid: ';
 								echo $project;

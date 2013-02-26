@@ -2,7 +2,7 @@
 	require_once('include/debug.php');
 	require_once('include/login/auth.php');
 ?>
-<!DOCTYPE HTML> 
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="include/style.css" media="screen"/>
@@ -11,7 +11,7 @@
 		<link rel="apple-touch-icon" href="img/apple.png" />
 		<title>Contact - ecDB</title>
 		<?php include_once("include/analytics.php") ?>
-		
+
 	</head>
 	<body>
 		<div id="wrapper">
@@ -20,29 +20,18 @@
 					echo '<!-- Header -->';
 						include 'include/header.php';
 					echo '<!-- END -->';
-					
+
 					echo '<!-- Main menu -->';
 						include 'include/menu.php';
 					echo '<!-- END -->';
 				}
 				else {
 					echo '<!-- Header -->';
-					echo '<div id="header">';
-						echo '<div class="logoWrapper">';
-							echo '<a href ="."><span class="logoImage"></span></a>';
-						echo '</div>';
-					echo '</div>';
+						include 'include/header_public.php';
 					echo '<!-- END -->';
-					
+
 					echo '<!-- Main menu -->';
-					echo '<div id="menu">';
-						echo '<ul>';
-							echo '<li><a href=".">Login</a></li>';
-							echo '<li><a href="register.php">Register</a></li>';
-							echo '<li><a href="about.php">About</a></li>';
-							echo '<li><a href="/blog">Blog</a></li>';
-						echo '</ul>';
-					echo '</div>';
+						include 'include/menu_public.php';
 					echo '<!-- END -->';
 				}
 			?>
@@ -57,11 +46,9 @@
 				</div>
 			</div>
 			<!-- END -->
-			
 			<!-- Text outside the main content -->
 			<?php include 'include/footer.php'; ?>
 			<!-- END -->
-			
 		</div>
 	</body>
 </html>
