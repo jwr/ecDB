@@ -123,7 +123,7 @@ class ProjectShow {
 			echo "<td>";
 			
 			$comp_id = $showDetails['id'];
-			$ShowQuant = mysql_query("SELECT projects_data_quantity FROM projects_data WHERE projects_data_component_id = '$comp_id'");
+			$ShowQuant = mysql_query("SELECT projects_data_quantity FROM projects_data WHERE projects_data_component_id = '$comp_id' AND projects_data_components_id = '$project_id'");
 			$quant = mysql_fetch_assoc($ShowQuant);
 	
 			$quantity = $quant['projects_data_quantity'];
