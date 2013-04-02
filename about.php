@@ -26,10 +26,10 @@
 			<!-- Main menu -->
 			<div id="menu">
 				<ul>
-					<li><a href=".">Login</a></li>
-					<li><a href="register.php">Register</a></li>
-					<li><a href="about.php" class="selected">About</a></li>
-					<li><a href="/blog">Blog</a></li>
+					<li><a href="."><span class="icon medium key"></span> Login</a></li>
+					<li><a href="register.php"><span class="icon medium user"></span> Register</a></li>
+					<li><a href="about.php" class="selected"><span class="icon medium document"></span> About</a></li>
+					<li><a href="/blog"><span class="icon medium docLinesStright"></span> Blog</a></li>
 				</ul>
 			</div>
 			<!-- END -->
@@ -38,7 +38,7 @@
 			<div id="content">
 				<div class="loginWrapper">
 					<div class="left">
-						<div class="message orange">
+						<div class="message blue">
 							Check out the new <a href="/blog">ecDB blog.</a> Or follow <a href="https://twitter.com/#!/ecDBnet">@ecDBnet</a> at Twitter to get the latest updates!
 						</div>
 						<h1>What is ecDB?</h1>
