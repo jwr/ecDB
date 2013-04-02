@@ -17,5 +17,6 @@
 	.spechBubbleSq.medium{background-position:-192px -88px;}
 	.trash.medium{background-position:-208px -88px;}
 	.sqPlus.medium{background-position:-224px -88px;}
+	.documentLines.medium{background-position:0 -104px;}
 .blIcon{background:url("../img/ecdbSpriteV1.png") no-repeat 0 -168px;width:77px;height:25px;display:inline-block;border:none;margin-bottom:-8px;}
 .packageImage{position:absolute;top:155px;right:125px;}

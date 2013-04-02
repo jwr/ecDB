@@ -20,7 +20,7 @@
 		<title>ecDB - electronics component DataBase</title>
 
 		<link href="include/jquery.tweet.css" rel="stylesheet">
-		<script type="text/javascript" src="include/jquery.min.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 		<script src="include/jquery.tweet.js" charset="utf-8"></script>
 		<?php include_once("include/analytics.php") ?>
 
@@ -39,10 +39,10 @@
 			<!-- Main menu -->
 			<div id="menu">
 				<ul>
-					<li><a href="." class="selected">Login</a></li>
-					<li><a href="register.php">Register</a></li>
-					<li><a href="about.php">About</a></li>
-					<li><a href="/blog">Blog</a></li>
+					<li><a href="." class="selected"><span class="icon medium key"></span> Login</a></li>
+					<li><a href="register.php"><span class="icon medium user"></span> Register</a></li>
+					<li><a href="about.php"><span class="icon medium document"></span> About</a></li>
+					<li><a href="/blog"><span class="icon medium docLinesStright"></span> Blog</a></li>
 				</ul>
 			</div>
 			<!-- END -->
@@ -66,7 +66,7 @@
 
 				<div class="loginWrapper">
 					<div class="left">
-						<div class="message orange">
+						<div class="message blue">
 							<script type="text/javascript">
 								jQuery(function ($) {
 								    $(".tweet").tweet({
