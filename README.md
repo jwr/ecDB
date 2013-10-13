@@ -25,11 +25,11 @@ I need help from the community to make [ecDB.net](http://www.ecdb.net) better!
 ## Release Information
 
 This repo contains in development code for future releases. To download the
-latest stable release please visit the [download page](https://github.com/ElectricMan/ecDB/downloads).
+latest release please download a zip-file of this repo [here](https://github.com/ElectricMan/ecDB/archive/master.zip).
 
 ## Changelog and New Features
 
-You can find a list of all changes for each release in the [wiki](https://github.com/ElectricMan/Test/wiki/Changelog).
+You can find a list of all changes in the [Github commits](https://github.com/ElectricMan/ecDB/commits/master).
 
 ## Documentation
 
@@ -41,7 +41,7 @@ Currently there is no documentation available. Please feel free to create it!
 - Create a MySQL database.
 - Import `ecdb_databse.sql` database structure to your MySQL-database.
 - Place the ecDB files in your web server's root directory. (Known issue and need to be fixed asap.).
-- Insert your MySQL data in the two configuration files, `include/mysql_connect.php` and `include/login/config.php`.
+- Insert your MySQL data in the configuration file, `include/mysql_connect.php`.
 - **You are now set to go!** The default username is `demo` and password `demo`.
 
 ### Requirements
