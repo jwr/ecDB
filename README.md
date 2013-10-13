@@ -40,7 +40,6 @@ Currently there is no documentation available. Please feel free to create it!
 - Either download the latest stable release from the [download page](https://github.com/ElectricMan/ecDB/downloads). Or download this git.
 - Create a MySQL database.
 - Import `ecdb_databse.sql` database structure to your MySQL-database.
-- Place the ecDB files in your web server's root directory. (Known issue and need to be fixed asap.).
 - Insert your MySQL data in the configuration file, `include/mysql_connect.php`.
 - **You are now set to go!** The default username is `demo` and password `demo`.
 
