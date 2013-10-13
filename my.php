@@ -145,6 +145,17 @@
 											}
 										?>
 										>EUR</option>	
+
+										<option value="GBP" 
+										<?php
+											if(!isset($_POST['submit']) && $executesql['currency'] == 'GBP') {
+												echo 'selected';
+											}
+											if(isset($_POST['submit']) && $_POST['currency'] == 'GBP') {
+												echo 'selected';
+											}
+										?>
+										>GBP</option>	
 									</select>
 								</td>
 							</tr>
