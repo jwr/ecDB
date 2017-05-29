@@ -1,4 +1,9 @@
 {
+    "autoload": {
+        "psr-4": {
+            "Ecdb\\Controllers\\": "controllers/"
+        }
+    },
     "require": {
         "doctrine/dbal": "*",
         "slim/slim": "^3.8",
