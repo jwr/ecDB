@@ -6,6 +6,9 @@ $container = $app->getContainer();
 $container['LoginController'] = function ($container) use ($app) {
     return new \Ecdb\Controllers\LoginController($app);
 };
+$container['RegisterController'] = function ($container) use ($app) {
+    return new \Ecdb\Controllers\RegisterController($app);
+};
 $container['view'] = function ($container) use ($ECDB_VERSION) {
     $smarty = new Smarty();
     $smarty->setTemplateDir(__DIR__ . '/../views');

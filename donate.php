@@ -38,7 +38,7 @@
 					echo '<div id="menu">';
 						echo '<ul>';
 							echo '<li><a href=".">Login</a></li>';
-							echo '<li><a href="register.php">Register</a></li>';
+							echo '<li><a href="register">Register</a></li>';
 							echo '<li><a href="about.php">About</a></li>';
 							echo '<li><a href="/blog">Blog</a></li>';
 						echo '</ul>';
