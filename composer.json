@@ -1,5 +1,6 @@
 {
     "require": {
+        "doctrine/dbal": "*",
         "slim/slim": "^3.8",
         "smarty/smarty": "^3.1"
     }

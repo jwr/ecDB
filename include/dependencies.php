@@ -11,3 +11,17 @@ $container['view'] = function ($container) use ($ECDB_VERSION) {
 
     return $smarty;
 };
+
+$container['db'] = function ($container) use ($config) {
+    $c = new \Doctrine\DBAL\Configuration();
+
+    $connectionParams = array(
+        'dbname' => $config['db']['db'],
+        'user' => $config['db']['username'],
+        'password' => $config['db']['password'],
+        'host' => $config['db']['host'],
+        'driver' => 'pdo_mysql',
+    );
+
+    return \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $c);
+};
