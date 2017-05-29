@@ -12,6 +12,9 @@ $container['RegisterController'] = function ($container) use ($app) {
 $container['AboutController'] = function ($container) use ($app) {
     return new \Ecdb\Controllers\AboutController($app);
 };
+$container['ProjectController'] = function ($container) use ($app) {
+    return new \Ecdb\Controllers\ProjectController($app);
+};
 $container['view'] = function ($container) use ($ECDB_VERSION) {
     $smarty = new Smarty();
     $smarty->setTemplateDir(__DIR__ . '/../views');

@@ -34,6 +34,10 @@ class BaseController {
             $this->view->assign('messages', $_SESSION['messages']);
             unset($_SESSION['messages']);
         }
+        if (!empty($_SESSION['info'])) {
+            $this->view->assign('info', $_SESSION['info']);
+            unset($_SESSION['info']);
+        }
     }
 
 }
