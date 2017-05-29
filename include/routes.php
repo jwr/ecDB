@@ -8,6 +8,11 @@ $app->any('/index.php', function ($request, $response, $args) {
     require_once(__DIR__ . '/../index_page.php');
 });
 
+// login/logout
+$app->get('/login', 'LoginController:index');
+$app->post('/auth', 'LoginController:auth');
+$app->get('/logout', 'LoginController:logout');
+
 // redirect to php file
 $app->any('/{filename}.php', function ($request, \Slim\Http\Response $response, $args) {
     $filename = realpath($args['filename'] . '.php');

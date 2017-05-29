@@ -8,7 +8,7 @@
 			
 		}
 		else {
-			header("location: login.php");
+			header("location: login");
 			exit();
 		}
 	}

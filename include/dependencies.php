@@ -3,11 +3,29 @@
 
 $container = $app->getContainer();
 
+$container['LoginController'] = function ($container) use ($app) {
+    return new \Ecdb\Controllers\LoginController($app);
+};
 $container['view'] = function ($container) use ($ECDB_VERSION) {
     $smarty = new Smarty();
     $smarty->setTemplateDir(__DIR__ . '/../views');
     $smarty->assign('ECDB_VERSION', $ECDB_VERSION);
     $smarty->error_reporting = E_ALL & ~E_NOTICE;
+
+    /** @var \Doctrine\DBAL\Connection $db */
+    $db = $container['db'];
+    if (isset($_SESSION['SESS_IS_ADMIN']) && $_SESSION['SESS_IS_ADMIN'] == 1) {
+        $data1 = $db->fetchAssoc('SELECT COUNT(member_id) AS count FROM members');
+        $data2 = $db->fetchAssoc('SELECT COUNT(id) AS count FROM data');
+        $data3 = $db->fetchAssoc('SELECT COUNT(project_id) AS count FROM projects');
+
+        $ADMIN_STATS = array(
+            'members' => $data1['count'],
+            'components' => $data2['count'],
+            'projects' => $data3['count'],
+        );
+        $smarty->assign('ADMIN_STATS', $ADMIN_STATS);
+    }
 
     return $smarty;
 };

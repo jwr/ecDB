@@ -44,7 +44,7 @@
 				
 				<b>Please login</b><br /><br />
 				
-				<form id="loginForm" name="loginForm" method="post" action="login-exec.php">
+				<form id="loginForm" name="loginForm" method="post" action="auth">
 					<table width="300" border="0" align="center" cellpadding="2" cellspacing="0">
 						<tr>
 							<td width="112">Login</td>
