@@ -14,6 +14,7 @@ $app->post('/auth', 'LoginController:auth');
 $app->get('/logout', 'LoginController:logout');
 $app->get('/register', 'RegisterController:index');
 $app->post('/register', 'RegisterController:register');
+$app->get('/about', 'AboutController:index');
 
 // redirect to php file
 $app->any('/{filename}.php', function ($request, \Slim\Http\Response $response, $args) {

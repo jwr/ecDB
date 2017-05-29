@@ -49,7 +49,7 @@
             {if !$smarty.session.SESS_MEMBER_ID}
                 <li><a href="{$base_url}/" class="{if $selected_menu=="Login"}selected{/if}"><span class="icon medium key"></span> Login</a></li>
                 <li><a href="{$base_url}/register" class="{if $selected_menu=="Register"}selected{/if}"><span class="icon medium user"></span> Register</a></li>
-                <li><a href="{$base_url}/about.php" class="{if $selected_menu=="About"}selected{/if}"><span class="icon medium document"></span> About</a></li>
+                <li><a href="{$base_url}/about" class="{if $selected_menu=="About"}selected{/if}"><span class="icon medium document"></span> About</a></li>
                 <li><a href="{$base_url}/blog"><span class="icon medium docLinesStright"></span> Blog</a></li>
             {/if}
         </ul>
@@ -89,7 +89,7 @@
                 © 2010 - {'Y'|@date} ecDB - Created by <a href="http://nilsf.se">Nils Fredriksson</a>
                 - <a href="{$base_url}/contact.php">Contact us</a>
                 - <a href="{$base_url}/terms.php">Terms & Privacy</a>
-                - <a href="{$base_url}/about.php">About</a>
+                - <a href="{$base_url}/about">About</a>
             </div>
             {if $smarty.session.SESS_IS_ADMIN}
                 <div class="stats">
