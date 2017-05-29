@@ -11,4 +11,6 @@ Desktop.ini
 # MySQL Config files
 include/mysql_connect.php
 include/login/config.php
+/vendor
+/.idea
 /nbproject/private/
