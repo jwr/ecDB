@@ -16,7 +16,7 @@
                 We want to change that for you by making a online inventory system for your electronic components that is easy to use.
                 Add your components. Search to find it, and then use it!
             </div>
-            <form class="globalForms" name="loginForm" method="post" action="register">
+            <form class="globalForms" name="loginForm" method="post" action="{$base_url}/register">
                 <div class="textInput">
                     <label class="keyWord">First name</label>
                     <div class="input"><input name="fname" type="text" value="{$fname|escape:'htmlall'}" class="medium" id="fname" /></div>
@@ -42,7 +42,7 @@
                     <div class="input"><input name="cpassword" type="password" class="medium" id="cpassword" onpaste="return false;" /></div>
                 </div>
                 <div class="buttons">
-                    By registering you accept the <a href="terms.php">Terms and Contidions.</a><br><br>
+                    By registering you accept the <a href="{$base_url}/terms.php">Terms and Contidions.</a><br><br>
                     <div class="input">
                         <button class="button green" name="Submit" type="submit">Register</button>
                     </div>

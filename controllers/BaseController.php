@@ -25,19 +25,6 @@ class BaseController {
         $this->app = $app;
         $this->view = $app->getContainer()->get('view');
         $this->db = $app->getContainer()->get('db');
-
-        if (!empty($_SESSION['ERRMSG_ARR'])) {
-            $this->view->assign('errors', $_SESSION['ERRMSG_ARR']);
-            unset($_SESSION['ERRMSG_ARR']);
-        }
-        if (!empty($_SESSION['messages'])) {
-            $this->view->assign('messages', $_SESSION['messages']);
-            unset($_SESSION['messages']);
-        }
-        if (!empty($_SESSION['info'])) {
-            $this->view->assign('info', $_SESSION['info']);
-            unset($_SESSION['info']);
-        }
     }
 
 }

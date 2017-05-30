@@ -21,7 +21,7 @@
                     Add your components. Search to find it, and then use it!
                 </div>
 
-                <form class="globalForms" name="loginForm" method="post" action="auth">
+                <form class="globalForms" name="loginForm" method="post" action="{$base_url}/auth">
                     <div class="textInput">
                         <label class="keyWord">Username</label>
                         <div class="input">
