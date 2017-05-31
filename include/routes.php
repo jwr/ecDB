@@ -17,6 +17,9 @@ $app->post('/register', 'RegisterController:register');
 $app->get('/about', 'AboutController:index')->setName('about');
 $app->get('/proj_list', 'ProjectController:projects')->setName('projects');
 $app->post('/project_add', 'ProjectController:add')->setName('project_add');
+$app->get('/project/{id}/edit', 'ProjectController:edit')->setName('project_edit');
+$app->post('/project/{id}/edit', 'ProjectController:edit');
+$app->get('/project/{id}', 'ProjectController:view')->setName('project');
 
 // redirect to php file
 $app->any('/{filename}.php', function ($request, \Slim\Http\Response $response, $args) {
