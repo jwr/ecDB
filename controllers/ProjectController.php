@@ -25,7 +25,7 @@ class ProjectController extends BaseController {
         $_SESSION['messages'] = array(
             'Project added!',
         );
-        return $response->withRedirect('proj_list');
+        return $this->redirect($response, 'projects');
     }
 
     public function projects(\Slim\Http\Request $req, \Slim\Http\Response $response, $args) {

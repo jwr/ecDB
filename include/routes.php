@@ -9,14 +9,14 @@ $app->any('/index.php', function ($request, $response, $args) {
 });
 
 // login/logout
-$app->get('/login', 'LoginController:index');
-$app->post('/auth', 'LoginController:auth');
-$app->get('/logout', 'LoginController:logout');
-$app->get('/register', 'RegisterController:index');
+$app->get('/login', 'LoginController:index')->setName('index');
+$app->post('/auth', 'LoginController:auth')->setName('auth');
+$app->get('/logout', 'LoginController:logout')->setName('logout');
+$app->get('/register', 'RegisterController:index')->setName('register');
 $app->post('/register', 'RegisterController:register');
-$app->get('/about', 'AboutController:index');
-$app->get('/proj_list', 'ProjectController:projects');
-$app->post('/project_add', 'ProjectController:add');
+$app->get('/about', 'AboutController:index')->setName('about');
+$app->get('/proj_list', 'ProjectController:projects')->setName('projects');
+$app->post('/project_add', 'ProjectController:add')->setName('project_add');
 
 // redirect to php file
 $app->any('/{filename}.php', function ($request, \Slim\Http\Response $response, $args) {
