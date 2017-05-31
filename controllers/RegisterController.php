@@ -77,7 +77,7 @@ class RegisterController extends BaseController {
             $this->view->assign('lname', $lname);
             $this->view->assign('login', $login);
             $this->view->assign('mail', $mail);
-            return $this->view->display('registration.tpl');
+            return $this->render('registration.tpl');
         }
 
         //Create INSERT query

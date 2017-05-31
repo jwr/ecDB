@@ -60,7 +60,7 @@ class LoginController extends BaseController {
         $member_id = $_SESSION['SESS_MEMBER_ID'];
         $this->db->insert('members_stats', array('members_stats_member' => $member_id));
 
-        return $response->withRedirect('index.php');
+        return $this->redirect($response, 'index');
     }
 
     public function index(\Slim\Http\Request $req, \Slim\Http\Response $response, $args) {
