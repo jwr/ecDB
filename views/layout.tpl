@@ -21,7 +21,7 @@
             {if $smarty.session.SESS_MEMBER_ID}
                 <span class="userInfo">
                     Logged in as
-                    <a href="{$base_url}/my.php">
+                    <a href="{$base_url}/my">
                         {$smarty.session.SESS_FIRST_NAME} {$smarty.session.SESS_LAST_NAME}
                     </a>
                     -
@@ -42,7 +42,7 @@
                 <li><a href="{$base_url}/add.php" class="{if $selected_menu=="component_add"}selected{/if}"><span class="icon medium sqPlus"></span> Add component</a></li>
                 <li><a href="{$base_url}/shoplist" class="{if $selected_menu=="shop_list"}selected{/if}"><span class="icon medium shopCart"></span> Shopping list</a></li>
                 <li><a href="{$base_url}/proj_list" class="{if $selected_menu=="projects"}selected{/if}"><span class="icon medium cube"></span> Projects</a></li>
-                <li><a href="{$base_url}/my.php" class="{if $selected_menu=="my"}selected{/if}"><span class="icon medium user"></span> My account</a></li>
+                <li><a href="{$base_url}/my" class="{if $selected_menu=="my"}selected{/if}"><span class="icon medium user"></span> My account</a></li>
                 <li class="public"><a href="{$base_url}/public.php" class="{if $selected_menu=="components_public"}selected{/if}"><span class="icon medium shre"></span> Public components</a></li>
                 <li class="donate"><a href="{$base_url}/donate" class="{if $selected_menu=="donate"}selected{/if}"><span class="icon medium curDollar"></span> Donate</a></li>
             {/if}

@@ -15,6 +15,9 @@ $container['AboutController'] = function ($container) use ($app) {
 $container['ProjectController'] = function ($container) use ($app) {
     return new \Ecdb\Controllers\ProjectController($app);
 };
+$container['MemberController'] = function ($container) use ($app) {
+    return new \Ecdb\Controllers\MemberController($app);
+};
 $container['TermsController'] = function ($container) use ($app) {
     return new \Ecdb\Controllers\TermsController($app);
 };

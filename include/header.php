@@ -5,7 +5,7 @@
 	</div>
 	
 	<span class="userInfo">
-		Logged in as <a href="my.php">
+		Logged in as <a href="my">
 		<?php
 			require_once('include/login/auth.php');
 			include('include/mysql_connect.php');

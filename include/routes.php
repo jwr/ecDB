@@ -20,6 +20,8 @@ $app->post('/project_add', 'ProjectController:add')->setName('project_add');
 $app->get('/project/{id}/edit', 'ProjectController:edit')->setName('project_edit');
 $app->post('/project/{id}/edit', 'ProjectController:edit')->setName('project_edit');
 $app->get('/project/{id}', 'ProjectController:view')->setName('project');
+$app->get('/my', 'MemberController:edit')->setName('member_edit');
+$app->post('/my', 'MemberController:edit')->setName('member_edit');
 $app->get('/terms', 'TermsController:index')->setName('terms');
 $app->get('/contact', 'ContactController:index')->setName('contact');
 $app->get('/donate', 'DonateController:index')->setName('donate');
