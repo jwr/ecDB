@@ -6,6 +6,7 @@
     },
     "require": {
         "doctrine/dbal": "*",
+        "erusev/parsedown": "*",
         "slim/slim": "^3.8",
         "smarty/smarty": "^3.1"
     }
