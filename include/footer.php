@@ -1,6 +1,6 @@
 <div id="copyText">
     <div class="leftBox">
-        <div>© 2010 - <?php echo date('Y'); ?> ecDB - Created by <a href="http://nilsf.se">Nils Fredriksson</a> - <a href="contact.php">Contact us</a> - <a href="terms.php">Terms & Privacy</a></div>
+        <div>© 2010 - <?php echo date('Y'); ?> ecDB - Created by <a href="http://nilsf.se">Nils Fredriksson</a> - <a href="contact">Contact us</a> - <a href="terms">Terms & Privacy</a></div>
         <div class="stats">
             <?php include_once('include/mysql_connect.php'); ?>
 

@@ -15,6 +15,15 @@ $container['AboutController'] = function ($container) use ($app) {
 $container['ProjectController'] = function ($container) use ($app) {
     return new \Ecdb\Controllers\ProjectController($app);
 };
+$container['TermsController'] = function ($container) use ($app) {
+    return new \Ecdb\Controllers\TermsController($app);
+};
+$container['ContactController'] = function ($container) use ($app) {
+    return new \Ecdb\Controllers\ContactController($app);
+};
+$container['DonateController'] = function ($container) use ($app) {
+    return new \Ecdb\Controllers\DonateController($app);
+};
 $container['view'] = function ($container) use ($ECDB_VERSION) {
     $smarty = new Smarty();
     $smarty->setTemplateDir(__DIR__ . '/../views');

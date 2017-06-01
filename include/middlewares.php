@@ -54,11 +54,12 @@ $app->add(function ($request, $response, $next) {
         'login',
         'register',
         'about',
+        'projects',
         'auth',
         'terms',
         'contact',
         'donate',
-        'project_bom_download',
+        'project',
     );
 
     if (empty($_SESSION['SESS_MEMBER_ID']) && !in_array($name, $public_route_names)) {
@@ -67,8 +68,7 @@ $app->add(function ($request, $response, $next) {
     }
 
     $admin_route_names = array(
-        'admin',
-        'admin_users',
+
     );
 
     if ((empty($_SESSION['SESS_MEMBER_ID']) || empty($_SESSION['SESS_IS_ADMIN'])) && in_array($name, $admin_route_names)) {

@@ -42,7 +42,7 @@
                     <div class="input"><input name="cpassword" type="password" class="medium" id="cpassword" onpaste="return false;" /></div>
                 </div>
                 <div class="buttons">
-                    By registering you accept the <a href="{$base_url}/terms.php">Terms and Contidions.</a><br><br>
+                    By registering you accept the <a href="{$base_url}/terms">Terms and Contidions.</a><br><br>
                     <div class="input">
                         <button class="button green" name="Submit" type="submit">Register</button>
                     </div>

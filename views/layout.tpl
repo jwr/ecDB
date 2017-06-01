@@ -44,7 +44,7 @@
                 <li><a href="{$base_url}/proj_list" class="{if $selected_menu=="projects"}selected{/if}"><span class="icon medium cube"></span> Projects</a></li>
                 <li><a href="{$base_url}/my.php" class="{if $selected_menu=="my"}selected{/if}"><span class="icon medium user"></span> My account</a></li>
                 <li class="public"><a href="{$base_url}/public.php" class="{if $selected_menu=="components_public"}selected{/if}"><span class="icon medium shre"></span> Public components</a></li>
-                <li class="donate"><a href="{$base_url}/donate.php" class="{if $selected_menu=="donate"}selected{/if}"><span class="icon medium curDollar"></span> Donate</a></li>
+                <li class="donate"><a href="{$base_url}/donate" class="{if $selected_menu=="donate"}selected{/if}"><span class="icon medium curDollar"></span> Donate</a></li>
             {/if}
             {if !$smarty.session.SESS_MEMBER_ID}
                 <li><a href="{$base_url}/" class="{if $selected_menu=="Login"}selected{/if}"><span class="icon medium key"></span> Login</a></li>
@@ -87,8 +87,8 @@
         <div class="leftBox">
             <div>
                 © 2010 - {'Y'|@date} ecDB - Created by <a href="http://nilsf.se">Nils Fredriksson</a>
-                - <a href="{$base_url}/contact.php">Contact us</a>
-                - <a href="{$base_url}/terms.php">Terms & Privacy</a>
+                - <a href="{$base_url}/contact">Contact us</a>
+                - <a href="{$base_url}/terms">Terms & Privacy</a>
                 - <a href="{$base_url}/about">About</a>
             </div>
             {if $smarty.session.SESS_IS_ADMIN}

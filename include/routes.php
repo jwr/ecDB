@@ -20,6 +20,9 @@ $app->post('/project_add', 'ProjectController:add')->setName('project_add');
 $app->get('/project/{id}/edit', 'ProjectController:edit')->setName('project_edit');
 $app->post('/project/{id}/edit', 'ProjectController:edit')->setName('project_edit');
 $app->get('/project/{id}', 'ProjectController:view')->setName('project');
+$app->get('/terms', 'TermsController:index')->setName('terms');
+$app->get('/contact', 'ContactController:index')->setName('contact');
+$app->get('/donate', 'DonateController:index')->setName('donate');
 
 // redirect to php file
 $app->any('/{filename}.php', function ($request, \Slim\Http\Response $response, $args) {
