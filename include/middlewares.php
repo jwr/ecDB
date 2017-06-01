@@ -35,3 +35,46 @@ $app->add(function ($request, $response, $next) {
 
     return $response;
 });
+
+$app->add(function ($request, $response, $next) {
+    $route = $request->getAttribute('route');
+
+    // index for non existent route
+    if (empty($route)) {
+        $path = $this->get('router')->pathFor('index');
+        return $response->withRedirect($path);
+    }
+
+    $name = $route->getName();
+    # $groups = $route->getGroups();
+    # $methods = $route->getMethods();
+    # $arguments = $route->getArguments();
+
+    $public_route_names = array(
+        'login',
+        'register',
+        'about',
+        'auth',
+        'terms',
+        'contact',
+        'donate',
+        'project_bom_download',
+    );
+
+    if (empty($_SESSION['SESS_MEMBER_ID']) && !in_array($name, $public_route_names)) {
+        $path = $this->get('router')->pathFor('login');
+        return $response->withRedirect($path);
+    }
+
+    $admin_route_names = array(
+        'admin',
+        'admin_users',
+    );
+
+    if ((empty($_SESSION['SESS_MEMBER_ID']) || empty($_SESSION['SESS_IS_ADMIN'])) && in_array($name, $admin_route_names)) {
+        $path = $this->get('router')->pathFor('login');
+        return $response->withRedirect($path);
+    }
+
+    return $next($request, $response);
+});
