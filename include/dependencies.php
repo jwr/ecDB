@@ -27,6 +27,9 @@ $container['ContactController'] = function ($container) use ($app) {
 $container['DonateController'] = function ($container) use ($app) {
     return new \Ecdb\Controllers\DonateController($app);
 };
+$container['ShopController'] = function ($container) use ($app) {
+    return new \Ecdb\Controllers\ShopController($app);
+};
 $container['view'] = function ($container) use ($ECDB_VERSION) {
     $smarty = new Smarty();
     $smarty->setTemplateDir(__DIR__ . '/../views');

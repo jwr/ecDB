@@ -25,6 +25,7 @@ $app->post('/my', 'MemberController:edit')->setName('member_edit');
 $app->get('/terms', 'TermsController:index')->setName('terms');
 $app->get('/contact', 'ContactController:index')->setName('contact');
 $app->get('/donate', 'DonateController:index')->setName('donate');
+$app->get('/shoplist', 'ShopController:index')->setName('shoplist');
 
 // redirect to php file
 $app->any('/{filename}.php', function ($request, \Slim\Http\Response $response, $args) {
