@@ -1,14 +1,7 @@
 <?php
 
-// index
-$app->any('/', function ($request, $response, $args) {
-    require_once(__DIR__ . '/../index_page.php');
-})->setName('index');
-$app->any('/index.php', function ($request, $response, $args) {
-    require_once(__DIR__ . '/../index_page.php');
-})->setName('index');
-
-// login/logout
+$app->get('/', 'ComponentController:listing')->setName('index');
+$app->get('/category', 'ComponentController:listing')->setName('index');
 $app->get('/login', 'LoginController:index')->setName('login');
 $app->post('/auth', 'LoginController:auth')->setName('auth');
 $app->get('/logout', 'LoginController:logout')->setName('logout');
