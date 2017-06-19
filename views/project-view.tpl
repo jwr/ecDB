@@ -3,7 +3,6 @@
 {block name=title}Viewing project - {$project.project_name} - ecDB{/block}
 
 {block name=head}
-    <script type="text/javascript" src="include/autocomplete/jquery.js"></script>
     <script type="text/javascript" src="include/autocomplete/jquery.autocomplete.js"></script>
     <link rel="stylesheet" type="text/css" href="include/autocomplete/jquery.autocomplete.css" />
     <script type="text/javascript">

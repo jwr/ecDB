@@ -58,28 +58,20 @@
     <link rel="stylesheet" type="text/css" href="{$base_url}/include/autocomplete/jquery.autocomplete.css" />
 
     <script type="text/javascript">
-        $().ready(function() {
-            $("#name").autocomplete("{$base_url}/include/autocomplete/autocomplete_name.php", {
+        $.ready(function() {
+            $("#name").autocomplete("{$base_url}/ajax/autocomplete?f=name", {
                 width: 150,
                 matchContains: true,
                 minChars: 2,
                 selectFirst: false
             });
-        });
-    </script>
-    <script type="text/javascript">
-        $().ready(function() {
-            $("#package").autocomplete("{$base_url}/include/autocomplete/autocomplete_package.php", {
+            $("#package").autocomplete("{$base_url}/ajax/autocomplete?f=package", {
                 width: 150,
                 matchContains: true,
                 minChars: 2,
                 selectFirst: false
             });
-        });
-    </script>
-    <script type="text/javascript">
-        $().ready(function() {
-            $("#manufacturer").autocomplete("{$base_url}/include/autocomplete/autocomplete_manufacturer.php", {
+            $("#manufacturer").autocomplete("{$base_url}/ajax/autocomplete?f=manufacturer", {
                 width: 150,
                 matchContains: true,
                 minChars: 2,

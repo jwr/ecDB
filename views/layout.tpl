@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="{$base_url}/favicon.ico"/>
     <link rel="apple-touch-icon" href="{$base_url}/img/apple.png"/>
     <title>{block name=title}Home - ecDB{/block}</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     {block name=head}{/block}
 </head>
 <body>
