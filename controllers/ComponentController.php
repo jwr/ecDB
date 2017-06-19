@@ -63,6 +63,13 @@ class ComponentController extends BaseController {
         return $this->render('components_search.tpl');
     }
 
+    public function public_listing(\Slim\Http\Request $req, \Slim\Http\Response $response, $args) {
+
+        $this->view->assign('selected_menu', 'components_public');
+
+        return $this->render('components_public.tpl');
+    }
+
     public function listing(\Slim\Http\Request $req, \Slim\Http\Response $response, $args) {
 
         $owner = $_SESSION['SESS_MEMBER_ID'];
