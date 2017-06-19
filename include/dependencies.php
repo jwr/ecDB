@@ -36,9 +36,10 @@ $container['ComponentController'] = function ($container) use ($app) {
 $container['AjaxController'] = function ($container) use ($app) {
     return new \Ecdb\Controllers\AjaxController($app);
 };
-$container['view'] = function ($container) use ($ECDB_VERSION) {
+$container['view'] = function ($container) use ($ECDB_VERSION, $config) {
     $smarty = new Smarty();
     $smarty->setTemplateDir(__DIR__ . '/../views');
+    $smarty->setCompileDir($config['smarty_compile_dir']);
     $smarty->assign('ECDB_VERSION', $ECDB_VERSION);
     $smarty->error_reporting = E_ALL & ~E_NOTICE;
 
