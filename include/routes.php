@@ -2,6 +2,14 @@
 
 $app->get('/', 'ComponentController:listing')->setName('index');
 $app->get('/category', 'ComponentController:listing')->setName('index');
+$app->get('/component/{id:[0-9]+}', 'ComponentController:view')->setName('component');
+$app->get('/component/{id:[0-9]+}/edit', 'ComponentController:edit')->setName('component_edit');
+$app->post('/component/{id:[0-9]+}/edit', 'ComponentController:save')->setName('component_edit');
+$app->post('/component/{id:[0-9]+}/delete', 'ComponentController:delete')->setName('component_delete');
+$app->get('/component/add', 'ComponentController:add')->setName('component_add');
+$app->get('/component/add/{id:[0-9]+}', 'ComponentController:add')->setName('component_add');
+$app->post('/component/add', 'ComponentController:save')->setName('component_add');
+$app->post('/component/add/{id:[0-9]+}', 'ComponentController:save')->setName('component_add');
 $app->get('/components/public', 'ComponentController:public_listing')->setName('components_public');
 $app->get('/components/search', 'ComponentController:search')->setName('search');
 $app->get('/login', 'LoginController:index')->setName('login');

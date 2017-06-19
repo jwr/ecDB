@@ -39,7 +39,7 @@
         <ul>
             {if $smarty.session.SESS_MEMBER_ID}
                 <li><a href="{$base_url}/" class="{if $selected_menu=="components"}selected{/if}"><span class="icon medium inbox"></span> My components</a></li>
-                <li><a href="{$base_url}/add.php" class="{if $selected_menu=="component_add"}selected{/if}"><span class="icon medium sqPlus"></span> Add component</a></li>
+                <li><a href="{$base_url}/component/add" class="{if $selected_menu=="component_add"}selected{/if}"><span class="icon medium sqPlus"></span> Add component</a></li>
                 <li><a href="{$base_url}/shoplist" class="{if $selected_menu=="shop_list"}selected{/if}"><span class="icon medium shopCart"></span> Shopping list</a></li>
                 <li><a href="{$base_url}/proj_list" class="{if $selected_menu=="projects"}selected{/if}"><span class="icon medium cube"></span> Projects</a></li>
                 <li><a href="{$base_url}/my" class="{if $selected_menu=="my"}selected{/if}"><span class="icon medium user"></span> My account</a></li>
