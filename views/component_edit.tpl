@@ -15,6 +15,7 @@
                 document.getElementById('form-delete').submit();
             }
         }
+        {if !$new_component}
         function ajax_post(component_id, field, increase, callback) {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '{$base_url}/ajax/change_component_count_field');
@@ -52,6 +53,7 @@
                 document.querySelector(count_element_selector).value = data.data.value;
             });
         }
+        {/if}
     </script>
 
     <script type="text/javascript" src="{$base_url}/js/jquery.autocomplete.js"></script>
