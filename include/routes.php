@@ -12,6 +12,7 @@ $app->post('/component/add', 'ComponentController:save')->setName('component_add
 $app->post('/component/add/{id:[0-9]+}', 'ComponentController:save')->setName('component_add');
 $app->get('/components/public', 'ComponentController:public_listing')->setName('components_public');
 $app->get('/components/search', 'ComponentController:search')->setName('search');
+$app->post('/ajax/change_component_count_field', 'AjaxController:component_count')->setName('ajax_component_count');
 $app->get('/login', 'LoginController:index')->setName('login');
 $app->post('/auth', 'LoginController:auth')->setName('auth');
 $app->get('/logout', 'LoginController:logout')->setName('logout');
