@@ -45,6 +45,12 @@ class BaseController {
         return $this->view->display($template_filename);
     }
 
+    protected function renderError(\Slim\Http\Response $response, $error_code) {
+        $this->view->assign('error_code', $error_code);
+        $this->view->display('error.tpl');
+        return $response->withStatus(403);
+    }
+
     protected function redirect($response, $path_or_name, $args=array()) {
         try {
             $path = $this->app->getContainer()->get('router')->pathFor($path_or_name, $args);

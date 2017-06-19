@@ -396,8 +396,7 @@ class ComponentController extends BaseController {
         $component = $this->getComponent($id);
 
         if (!$component) {
-            header("Location: error.php?id=2");
-            exit;
+            return $this->renderError($response, 2);
         }
 
         $category = $this->getCategoriesNames($component['category']);
@@ -499,8 +498,7 @@ class ComponentController extends BaseController {
         $component = $this->getComponent($id);
 
         if (!$component) {
-            header("Location: error.php?id=1");
-            exit;
+            return $this->renderError($response, 1);
         }
 
         $sql = 'SELECT currency, measurement FROM members WHERE member_id = ?';
@@ -530,8 +528,7 @@ class ComponentController extends BaseController {
         }
 
         if ($id_based && !$component) {
-            header("Location: error.php?id=2");
-            exit;
+            return $this->renderError($response, 2);
         }
 
         if ($component) {
