@@ -7,6 +7,7 @@
     "require": {
         "doctrine/dbal": "*",
         "erusev/parsedown": "*",
+        "php": "^5.5.0 || ^7.0",
         "slim/slim": "^3.8",
         "smarty/smarty": "^3.1"
     }
