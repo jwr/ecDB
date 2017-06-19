@@ -2,6 +2,7 @@
 
 $app->get('/', 'ComponentController:listing')->setName('index');
 $app->get('/category', 'ComponentController:listing')->setName('index');
+$app->get('/components/search', 'ComponentController:search')->setName('search');
 $app->get('/login', 'LoginController:index')->setName('login');
 $app->post('/auth', 'LoginController:auth')->setName('auth');
 $app->get('/logout', 'LoginController:logout')->setName('logout');

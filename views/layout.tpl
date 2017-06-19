@@ -28,7 +28,7 @@
                     <a href="{$base_url}/logout">Sign out</a>
 	            </span>
                 <div class="searchContent">
-                    <form class="search" action="{$base_url}/search.php" method="get">
+                    <form class="search" action="{$base_url}/components/search" method="get">
                         <input type="text" name="q" autofocus/>
                     </form>
                 </div>

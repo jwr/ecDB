@@ -6,6 +6,63 @@ use Doctrine\DBAL\Driver\DrizzlePDOMySql\Connection;
 
 class ComponentController extends BaseController {
 
+    public function search(\Slim\Http\Request $req, \Slim\Http\Response $response, $args) {
+
+        $owner				=	$_SESSION['SESS_MEMBER_ID'];
+
+        $query = $req->getParam('q');
+        $query = trim(strip_tags(strtoupper($query)));
+        $by = $req->getParam('by');
+        $order = $req->getParam('order');
+
+        if (!in_array($order, array('asc', 'desc'))) {
+            $order = 'asc';
+        }
+
+        $by_map = array(
+            'price' => 'price+0',
+            'pins' => 'pins+0',
+            'quantity' => 'quantity+0',
+            'name' => 'name',
+            'category' => 'category',
+            'package' => 'package',
+            'smd' => 'smd',
+            'manufacturer' => 'manufacturer',
+        );
+        if (!array_key_exists($by, $by_map)) {
+            $by = 'name';
+        } else {
+            $by = $by_map[$by];
+        }
+
+        $sql = "SELECT d.*
+                     , c.`name` as nx
+                     , sc.name as snx
+                     , sc.id as scid
+                  FROM data d
+                  JOIN category_sub sc ON d.category = sc.id
+                  JOIN category_head c ON c.id = FLOOR(sc.id / 100)
+                 WHERE (d.name LIKE ? OR d.package LIKE ? OR d.manufacturer LIKE ? OR d.pins LIKE ? OR d.location LIKE ? OR d.comment LIKE ?)
+                   AND owner = ?
+                 ORDER BY {$by} {$order}";
+        $components = $this->db->fetchAll($sql, array(
+            "%{$query}%",
+            "%{$query}%",
+            "%{$query}%",
+            "%{$query}%",
+            "%{$query}%",
+            "%{$query}%",
+            $owner,
+        ));
+
+
+
+        $this->view->assign('components', $components);
+        $this->view->assign('selected_menu', 'search');
+
+        return $this->render('components_search.tpl');
+    }
+
     public function listing(\Slim\Http\Request $req, \Slim\Http\Response $response, $args) {
 
         $owner = $_SESSION['SESS_MEMBER_ID'];
