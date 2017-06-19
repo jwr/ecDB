@@ -215,7 +215,7 @@ div.aboutComponentHeader{overflow:auto;}
 				color:#888;
 				font-size:14px;
 				text-shadow:0 1px 0 #fff;
-				background:url("/img/dataBackground.png") #f7f7f7;
+				background:url("../img/dataBackground.png") #f7f7f7;
 				border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;
 			}
 	div.componentGallery div.smallImages{float:left;text-align:right;}

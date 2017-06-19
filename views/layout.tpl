@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="{$base_url}/include/style.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{$base_url}/css/style.css" media="screen"/>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <meta name="description" content="Viwe all your added components."/>
     <meta name="keywords" content="electronics, components, database, project, inventory"/>

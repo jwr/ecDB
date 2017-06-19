@@ -54,11 +54,11 @@
         }
     </script>
 
-    <script type="text/javascript" src="{$base_url}/include/autocomplete/jquery.autocomplete.js"></script>
-    <link rel="stylesheet" type="text/css" href="{$base_url}/include/autocomplete/jquery.autocomplete.css" />
+    <script type="text/javascript" src="{$base_url}/js/jquery.autocomplete.js"></script>
+    <link rel="stylesheet" type="text/css" href="{$base_url}/css/jquery.autocomplete.css" />
 
     <script type="text/javascript">
-        $.ready(function() {
+        $(function() {
             $("#name").autocomplete("{$base_url}/ajax/autocomplete?f=name", {
                 width: 150,
                 matchContains: true,
@@ -132,11 +132,11 @@
             <tr>
                 <td class="boldText">Manufacturer</td>
                 <td>
-                    <input name="component[manufacturer]" type="text" class="medium" value="{$component.manufacturer|escape:'html'}" />
+                    <input name="component[manufacturer]" id="manufacturer" type="text" class="medium" value="{$component.manufacturer|escape:'html'}" />
                 </td>
                 <td class="boldText">Package</td>
                 <td>
-                    <input name="component[package]" type="text" class="medium" value="{$component.package|escape:'html'}" />
+                    <input name="component[package]" id="package" type="text" class="medium" value="{$component.package|escape:'html'}" />
                 </td>
                 <td class="boldText">Pins</td>
                 <td>

@@ -1,0 +1,9 @@
+## Default .htaccess file
+## RewriteEngine On
+## RewriteCond %{HTTP_HOST} !^www\.ecdb\.net
+## RewriteRule (.*) http://www.ecdb.net/$1 [R=301,L]
+
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/?index.php$
+RewriteCond %{REQUEST_URI}  !(\.css|\.js|\.png)$
+RewriteRule . index.php
