@@ -8,6 +8,23 @@
     <link rel="shortcut icon" href="{$base_url}/favicon.ico"/>
     <link rel="apple-touch-icon" href="{$base_url}/img/apple.png"/>
     <title>{block name=title}Home - ecDB{/block}</title>
+    {if $ga.account}
+        <script type="text/javascript">
+            <!--
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', '{$ga.account}']);
+            _gaq.push(['_setDomainName', '{$ga.site}']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageLoadTime']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+            -->
+        </script>
+    {/if}
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     {block name=head}{/block}
 </head>

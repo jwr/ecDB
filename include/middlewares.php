@@ -78,3 +78,10 @@ $app->add(function ($request, $response, $next) {
 
     return $next($request, $response);
 });
+
+$app->add(function ($request, $response, $next) use ($config) {
+
+    $this->view->assign('ga', $config['google_analytics']);
+
+    return $next($request, $response);
+});

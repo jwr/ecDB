@@ -10,3 +10,11 @@ $config['db'] = array(
     'password' => 'password',
     'db' => 'database',
 );
+
+/**
+ * Google Analytics config
+ */
+$config['google_analytics'] = array(
+    'account' => '', // UA-xxxxxxxx-x
+    'site' => '', // ecdb.net
+);
