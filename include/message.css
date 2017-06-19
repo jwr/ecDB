@@ -1,9 +1,0 @@
-.message{padding:15px;margin:0 0 20px;}
-	/* Colors ---------- */
-	.green.message{background-color:#c0f48c;}
-	.red.message{background-color:#ffbbbb;}
-	.orange.message{background-color:#fccd6d;}
-	.white.message{background-color:#fff;}
-	/* Align ---------- */
-	.center.message{text-align:center;}
-	.right.message{text-align:right;}
