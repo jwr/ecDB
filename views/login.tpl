@@ -9,8 +9,6 @@
 
         <div class="loginWrapper">
             <div class="left">
-                <div class="message blue">
-                </div>
 
                 <div class="aboutECDB">
                     You want to build something and need some components for your project.
