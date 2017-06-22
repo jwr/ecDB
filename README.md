@@ -37,16 +37,12 @@ Currently there is no documentation available. Please feel free to create it!
 
 ## Installation
 
-- Either download the latest stable release from the [download page](https://github.com/ElectricMan/ecDB/downloads). Or download this git.
-- Create a MySQL database.
-- Import `ecdb_databse.sql` database structure to your MySQL-database.
-- Insert your MySQL data in the configuration file, `include/mysql_connect.php`.
-- **You are now set to go!** The default username is `demo` and password `demo`.
+[Installation instructions](INSTALL.md)
 
 ### Requirements
 
 -  Web Server.
--  PHP Version 5.2.4 or above.
+-  PHP Version 5.5 or above.
 -  MySQL Version 5.0 or above.
 
 ## Contributing
