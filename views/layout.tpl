@@ -109,19 +109,18 @@
                 - <a href="{$base_url}/terms">Terms & Privacy</a>
                 - <a href="{$base_url}/about">About</a>
             </div>
-            {if $smarty.session.SESS_IS_ADMIN}
-                <div class="stats">
 
-                    {$ADMIN_STATS.members}
-                    <span class="boldText">members</span>,
+            <div class="stats">
 
-                    {$ADMIN_STATS.components}
-                    <span class="boldText">components </span>and
+                {$STATS.members}
+                <span class="boldText">members</span>,
 
-                    {$ADMIN_STATS.projects}
-                    <span class="boldText">projects</span>.
-                </div>
-            {/if}
+                {$STATS.components}
+                <span class="boldText">components </span>and
+
+                {$STATS.projects}
+                <span class="boldText">projects</span>.
+            </div>
         </div>
         <div class="rightBox">
             Design by <a href="http://www.buildlog.eu"><span class="blIcon"></span></a>

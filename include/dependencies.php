@@ -45,18 +45,17 @@ $container['view'] = function ($container) use ($ECDB_VERSION, $config) {
 
     /** @var \Doctrine\DBAL\Connection $db */
     $db = $container['db'];
-    if (isset($_SESSION['SESS_IS_ADMIN']) && $_SESSION['SESS_IS_ADMIN'] == 1) {
-        $data1 = $db->fetchAssoc('SELECT COUNT(member_id) AS count FROM members');
-        $data2 = $db->fetchAssoc('SELECT COUNT(id) AS count FROM data');
-        $data3 = $db->fetchAssoc('SELECT COUNT(project_id) AS count FROM projects');
 
-        $ADMIN_STATS = array(
-            'members' => $data1['count'],
-            'components' => $data2['count'],
-            'projects' => $data3['count'],
-        );
-        $smarty->assign('ADMIN_STATS', $ADMIN_STATS);
-    }
+    $data1 = $db->fetchAssoc('SELECT COUNT(member_id) AS count FROM members');
+    $data2 = $db->fetchAssoc('SELECT COUNT(id) AS count FROM data');
+    $data3 = $db->fetchAssoc('SELECT COUNT(project_id) AS count FROM projects');
+
+    $STATS = array(
+        'members' => $data1['count'],
+        'components' => $data2['count'],
+        'projects' => $data3['count'],
+    );
+    $smarty->assign('STATS', $STATS);
 
     return $smarty;
 };
