@@ -215,7 +215,9 @@
                         in
                     {/if}
                 </td>
-                <td></td>
+                <td colspan="2" rowspan="5">
+                    <img class="packageImage" border="0" src="{$base_url}/img/boxSize.png"/>
+                </td>
             </tr>
             <tr>
                 <td></td>
@@ -229,10 +231,6 @@
                         in
                     {/if}
                 </td>
-                <td>
-                    <img class="packageImage" border="0" src="{$base_url}/img/boxSize.png"/>
-                </td>
-                <td></td>
             </tr>
 
             <tr>
@@ -251,13 +249,8 @@
                         in
                     {/if}
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -272,8 +265,6 @@
                 <td>
                     <input name="component[url2]" type="text" class="medium" value="{$component.url2|escape:'html'}" />
                 </td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
                 <td class="boldText">Image URL 3</td>

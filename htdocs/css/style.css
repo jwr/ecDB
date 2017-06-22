@@ -104,7 +104,7 @@ div.logoWrapper{position:absolute;top:10px;left:0;}
 	.curDollar.medium{background-position:-80px -104px;}
 	.shre.medium{background-position:-96px -104px;}
 .blIcon{background:url("../img/ecdbSpriteV1.png") no-repeat 0 -168px;width:77px;height:25px;display:inline-block;border:none;margin-bottom:-8px;}
-.packageImage{position:absolute;top:170px;right:115px;}
+.packageImage{position:relative;top:-25px;left:-160px;}
 div#menu{width:870px;padding:0 8px;margin:auto;}
 	div#menu ul{list-style:none;}
 		div#menu ul li{list-style:none;display:inline-block;}
