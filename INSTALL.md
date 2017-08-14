@@ -56,7 +56,7 @@ mysql> GRANT ALL PRIVILEGES ON ecdb.* TO 'ecdb'@'localhost';
 
 Example apache configuration can be found in `config/apache.conf`. ecDB uses rewrite rules and `AllowOverride` must be
 allowed. If you want to ecDB be accessible from base path (eg. http://domain/myecdb/), then configure `RewriteBase` to
-specify base path in `.htdocs/.htaccess`.
+specify base path in `htdocs/.htaccess`.
 
 ### PHP built-in server
 
