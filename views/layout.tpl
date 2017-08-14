@@ -68,7 +68,6 @@
                 <li><a href="{$base_url}/" class="{if $selected_menu=="Login"}selected{/if}"><span class="icon medium key"></span> Login</a></li>
                 <li><a href="{$base_url}/register" class="{if $selected_menu=="Register"}selected{/if}"><span class="icon medium user"></span> Register</a></li>
                 <li><a href="{$base_url}/about" class="{if $selected_menu=="About"}selected{/if}"><span class="icon medium document"></span> About</a></li>
-                <li><a href="{$base_url}/blog"><span class="icon medium docLinesStright"></span> Blog</a></li>
             {/if}
         </ul>
     </div>
