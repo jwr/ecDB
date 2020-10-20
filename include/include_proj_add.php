@@ -7,7 +7,7 @@ class ProjAdd {
 		
 		if(isset($_POST['submit'])) {
 			$owner			=	$_SESSION['SESS_MEMBER_ID'];
-			$name 			= 	mysql_real_escape_string($_POST['name']);		
+			$name 			= 	mysqli_real_escape_string($link,$_POST['name']);		
 
 			if ($name == '') {
 				echo '<div class="message red">';
@@ -16,9 +16,9 @@ class ProjAdd {
 			}
 			else {
 				$sql="INSERT into projects (project_owner, project_name) VALUES ('$owner', '$name')";
-				$sql_exec = mysql_query($sql);
+				$sql_exec = mysqli_query($link,$sql);
 				
-				$proj_id = mysql_insert_id();
+				$proj_id = mysqli_insert_id($link);
 				
 				echo '<div class="message green center">';
 				echo 'Project added!';

@@ -5,8 +5,8 @@
 	
 	$owner 	= 	$_SESSION['SESS_MEMBER_ID'];
 
-	$GetDataComponent = mysql_query("SELECT * FROM members WHERE member_id = ".$owner."");
-	$executesql = mysql_fetch_assoc($GetDataComponent);
+	$GetDataComponent = mysqli_query($link,"SELECT * FROM members WHERE member_id = ".$owner."");
+	$executesql = mysqli_fetch_assoc($GetDataComponent);
 ?>
 <!DOCTYPE HTML> 
 <html>

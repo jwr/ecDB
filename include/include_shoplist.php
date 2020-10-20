@@ -12,8 +12,8 @@ class Shoplist {
 			$by = $_GET["by"];
 			$order = $_GET["order"];
 			
-			$bysql = mysql_real_escape_string($by);
-			$ordersql = mysql_real_escape_string($order);
+			$bysql = mysqli_real_escape_string($link,$by);
+			$ordersql = mysqli_real_escape_string($link,$order);
 			
 			if($by == 'price' or $by == 'pins' or $by == 'quantity') {
 			
@@ -29,9 +29,9 @@ class Shoplist {
 		}
 		
 		
-		$sql_exec = mysql_Query($GetDataComponentsAll);
+		$sql_exec = mysqli_query($link,$GetDataComponentsAll);
 
-		while($showDetails = mysql_fetch_array($sql_exec)) {
+		while($showDetails = mysqli_fetch_array($sql_exec)) {
 			echo "<tr>";
 
 			echo '<td class="edit"><a href="edit_component.php?edit=';

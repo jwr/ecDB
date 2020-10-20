@@ -9,13 +9,13 @@ class Proj {
 		
 		$owner = $_SESSION['SESS_MEMBER_ID'];
 		
-		$GetPersonal = mysql_query("SELECT currency FROM members WHERE member_id = ".$owner."");
-		$personal = mysql_fetch_assoc($GetPersonal);
+		$GetPersonal = mysqli_query($link,"SELECT currency FROM members WHERE member_id = ".$owner."");
+		$personal = mysqli_fetch_assoc($GetPersonal);
 
 		if(isset($_GET['by'])) {
 		
-			$by			=	strip_tags(mysql_real_escape_string($_GET["by"]));
-			$order_q	=	strip_tags(mysql_real_escape_string($_GET["order"]));
+			$by			=	strip_tags(mysqli_real_escape_string($link,$_GET["by"]));
+			$order_q	=	strip_tags(mysqli_real_escape_string($link,$_GET["order"]));
 			
 			if($order_q == 'desc' or $order_q == 'asc'){
 				$order = $order_q;
@@ -35,9 +35,9 @@ class Proj {
 			$GetDataComponentsAll = "SELECT * FROM projects WHERE project_owner = ".$owner." ORDER by project_name ASC";
 		}
 		
-		$sql_exec = mysql_Query($GetDataComponentsAll);
+		$sql_exec = mysqli_query($link,$GetDataComponentsAll);
 
-		while($showDetails = mysql_fetch_array($sql_exec)) {
+		while($showDetails = mysqli_fetch_array($sql_exec)) {
 			echo "<tr>";
 				echo '<td class="edit"><a href="proj_edit.php?proj_id=';
 				echo $showDetails['project_id'];
@@ -52,8 +52,8 @@ class Proj {
 				echo '</td>';
 				
 				echo "<td>";
-					$components = mysql_query("SELECT projects_data_project_id FROM projects_data WHERE projects_data_project_id = ".$showDetails['project_id']."");
-					$number_components = mysql_num_rows($components);
+					$components = mysqli_query($link,"SELECT projects_data_project_id FROM projects_data WHERE projects_data_project_id = ".$showDetails['project_id']."");
+					$number_components = mysqli_num_rows($components);
 					if ($number_components == 0){
 						echo "-";
 					}
@@ -64,9 +64,9 @@ class Proj {
 				
 				echo '<td>';
 					$GetDataPrice = "SELECT SUM(total) FROM (SELECT projects_data_quantity * price AS total FROM projects_data JOIN `data` WHERE data.id = projects_data_component_id AND projects_data_project_id = ".$showDetails['project_id'].") AS project_total";
-					$sql_exec_price = mysql_Query($GetDataPrice) or die(mysql_error());
+					$sql_exec_price = mysqli_query($link,$GetDataPrice) or die(mysqli_error($link));
 					
-					while($showPrice = mysql_fetch_array($sql_exec_price)) {
+					while($showPrice = mysqli_fetch_array($sql_exec_price)) {
 						if ($showPrice['SUM(total)'] == 0){
 							echo "-";
 						}

@@ -12,18 +12,18 @@
 	$errflag = false;
 	
 	//Connect to mysql server
-	$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+	$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD);
 	if(!$link) {
-		die('Failed to connect to server: ' . mysql_error());
+		die('Failed to connect to server: ' . mysqli_error($link));
 	}
 	
 	//Select database
-	$db = mysql_select_db(DB_DATABASE);
+	$db = mysqli_select_db($link, DB_DATABASE);
 	if(!$db) {
 		die("Unable to select database");
 	}
 	
-	mysql_set_charset('utf8');
+	mysqli_set_charset($link, 'utf8');
 	
 	//Function to sanitize values received from the form. Prevents SQL injection
 	function clean($str) {
@@ -31,7 +31,7 @@
 		if(get_magic_quotes_gpc()) {
 			$str = stripslashes($str);
 		}
-		return mysql_real_escape_string($str);
+		return mysqli_real_escape_string($link, $str);
 	}
 	
 	//Sanitize the POST values
@@ -95,13 +95,13 @@
 	//Check for duplicate login ID
 	if($login != '') {
 		$qry = "SELECT * FROM members WHERE login='$login'";
-		$result = mysql_query($qry);
+		$result = mysqli_query($link,$qry);
 		if($result) {
-			if(mysql_num_rows($result) > 0) {
+			if(mysqli_num_rows($result) > 0) {
 				$errmsg_arr[] = 'Username already in use';
 				$errflag = true;
 			}
-			@mysql_free_result($result);
+			@mysqli_free_result($result);
 		}
 		else {
 			die("Query failed");
@@ -118,7 +118,7 @@
 
 	//Create INSERT query
 	$qry = "INSERT INTO members(firstname, lastname, login, mail, passwd) VALUES('$fname','$lname','$login','$mail','".md5($_POST['password'])."')";
-	$result = @mysql_query($qry);
+	$result = @mysqli_query($link,$qry);
 	
 	//Check whether the query was successful or not
 	if($result) {

@@ -14,12 +14,12 @@
 		<meta name="description" content="BOM-list for project <?php
 							// Visar projektets namn.
 							include('include/mysql_connect.php');
-							$project_id = mysql_real_escape_string($_GET["proj_id"]);
+							$project_id = mysqli_real_escape_string($link,$_GET["proj_id"]);
 							$owner = $_SESSION['SESS_MEMBER_ID'];
 							
-							$result = mysql_query("SELECT project_name FROM projects WHERE project_owner = ".$owner." AND project_id = ".$project_id."");
+							$result = mysqli_query($link,"SELECT project_name FROM projects WHERE project_owner = ".$owner." AND project_id = ".$project_id."");
 
-							while($row = mysql_fetch_array($result))
+							while($row = mysqli_fetch_array($result))
 							{
 								echo $row['project_name'];
 							}
@@ -30,12 +30,12 @@
 		<title>Viewing project - <?php
 							// Visar projektets namn.
 							include('include/mysql_connect.php');
-							$project_id = mysql_real_escape_string($_GET["proj_id"]);
+							$project_id = mysqli_real_escape_string($link,$_GET["proj_id"]);
 							$owner = $_SESSION['SESS_MEMBER_ID'];
 							
-							$result = mysql_query("SELECT project_name FROM projects WHERE project_owner = ".$owner." AND project_id = ".$project_id."");
+							$result = mysqli_query($link,"SELECT project_name FROM projects WHERE project_owner = ".$owner." AND project_id = ".$project_id."");
 
-							while($row = mysql_fetch_array($result))
+							while($row = mysqli_fetch_array($result))
 							{
 								echo $row['project_name'];
 							}
@@ -57,12 +57,12 @@
 						<?php
 							// Visar projektets namn.
 							include('include/mysql_connect.php');
-							$project_id = mysql_real_escape_string($_GET["proj_id"]);
+							$project_id = mysqli_real_escape_string($link,$_GET["proj_id"]);
 							$owner = $_SESSION['SESS_MEMBER_ID'];
 							
-							$result = mysql_query("SELECT project_name FROM projects WHERE project_owner = ".$owner." AND project_id = ".$project_id."");
+							$result = mysqli_query($link,"SELECT project_name FROM projects WHERE project_owner = ".$owner." AND project_id = ".$project_id."");
 
-							while($row = mysql_fetch_array($result))
+							while($row = mysqli_fetch_array($result))
 							{
 								echo "<strong>";
 								echo $row['project_name'];

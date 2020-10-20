@@ -6,11 +6,11 @@
 	$owner 	= 	$_SESSION['SESS_MEMBER_ID'];
 	$id 	= 	(int)$_GET['edit'];
 
-	$GetDataComponent = mysql_query("SELECT * FROM data WHERE id = ".$id." AND owner = ".$owner."");
-	$executesql = mysql_fetch_assoc($GetDataComponent);
+	$GetDataComponent = mysqli_query($link,"SELECT * FROM data WHERE id = ".$id." AND owner = ".$owner."");
+	$executesql = mysqli_fetch_assoc($GetDataComponent);
 	
-	$GetPersonal = mysql_query("SELECT currency, measurement FROM members WHERE member_id = ".$owner."");
-	$personal = mysql_fetch_assoc($GetPersonal);
+	$GetPersonal = mysqli_query($link,"SELECT currency, measurement FROM members WHERE member_id = ".$owner."");
+	$personal = mysqli_fetch_assoc($GetPersonal);
 	
 	if ($executesql['owner'] !== $owner) {
 		header("Location: error.php?id=2");
@@ -23,23 +23,23 @@
 		$head_cat_id = substr($executesql['category'], -4, 2);
 	}
 
-	$GetHeadCatName = mysql_query("SELECT * FROM category_head WHERE id = ".$head_cat_id."");
-	$executesql_head_catname = mysql_fetch_assoc($GetHeadCatName);
+	$GetHeadCatName = mysqli_query($link,"SELECT * FROM category_head WHERE id = ".$head_cat_id."");
+	$executesql_head_catname = mysqli_fetch_assoc($GetHeadCatName);
 
 	$sub_cat_id = $executesql['category'];
 	
-	$GetSubCatName = mysql_query("SELECT * FROM category_sub WHERE id = ".$sub_cat_id."");
-	$executesql_sub_catname = mysql_fetch_assoc($GetSubCatName);
+	$GetSubCatName = mysqli_query($link,"SELECT * FROM category_sub WHERE id = ".$sub_cat_id."");
+	$executesql_sub_catname = mysqli_fetch_assoc($GetSubCatName);
 	
 	$GetDataComponentsAll = "SELECT * FROM category_sub";
-	$sql_exec = mysql_Query($GetDataComponentsAll);
+	$sql_exec = mysqli_query($link,$GetDataComponentsAll);
 	
 	if(isset($_POST['delete'])) {
 		$sqlDeleteComopnent = "DELETE FROM data WHERE id = ".$id." ";
-		$sql_exec_component_delete = mysql_query($sqlDeleteComopnent);
+		$sql_exec_component_delete = mysqli_query($link,$sqlDeleteComopnent);
 
 		$sqlDeleteProject = "DELETE FROM projects_data WHERE projects_data_component_id = '$id'";
-		$sql_exec_project_delete = mysql_query($sqlDeleteProject);
+		$sql_exec_project_delete = mysqli_query($link,$sqlDeleteProject);
 
 		header("Location: .");
 	}
@@ -53,7 +53,7 @@
 		$quantity_after		= 	$quantity_before + 1;
 		
 		$sql = "UPDATE data SET quantity = '".$quantity_after."' WHERE id = ".$id." ";
-		$sql_exec = mysql_query($sql);
+		$sql_exec = mysqli_query($link,$sql);
 		header("location: " . $_SERVER['REQUEST_URI']);
 	}
 	
@@ -62,7 +62,7 @@
 		$quantity_after 	= 	$quantity_before - 1;
 		
 		$sql = "UPDATE data SET quantity = '".$quantity_after."' WHERE id = ".$id." ";
-		$sql_exec = mysql_query($sql);
+		$sql_exec = mysqli_query($link,$sql);
 		header("location: " . $_SERVER['REQUEST_URI']);
 	}
 	
@@ -71,7 +71,7 @@
 		$quantity_after		= 	$quantity_before + 1;
 		
 		$sql = "UPDATE data SET order_quantity = '".$quantity_after."' WHERE id = ".$id." ";
-		$sql_exec = mysql_query($sql);
+		$sql_exec = mysqli_query($link,$sql);
 		header("location: " . $_SERVER['REQUEST_URI']);
 	}
 	
@@ -80,7 +80,7 @@
 		$quantity_after 	= 	$quantity_before - 1;
 		
 		$sql = "UPDATE data SET order_quantity = '".$quantity_after."' WHERE id = ".$id." ";
-		$sql_exec = mysql_query($sql);
+		$sql_exec = mysqli_query($link,$sql);
 		header("location: " . $_SERVER['REQUEST_URI']);
 	}
 ?>
@@ -157,9 +157,9 @@
 									<select name="category">
 										<?php
 											$HeadCategoryNameQuery = "SELECT * FROM category_head ORDER by name ASC";
-											$sql_exec_headcat = mysql_Query($HeadCategoryNameQuery);
+											$sql_exec_headcat = mysqli_query($link,$HeadCategoryNameQuery);
 		
-											while ($HeadCategory = mysql_fetch_array($sql_exec_headcat)) {
+											while ($HeadCategory = mysqli_fetch_array($sql_exec_headcat)) {
 												
 												echo '<option class="main_category" value="';
 												echo $HeadCategory['id'];
@@ -171,9 +171,9 @@
 												$subcatto = $subcatfrom + 99;
 												
 												$SubCategoryNameQuery = "SELECT * FROM category_sub WHERE id BETWEEN ".$subcatfrom." AND ".$subcatto." ORDER by name ASC";
-												$sql_exec_subcat = mysql_Query($SubCategoryNameQuery);
+												$sql_exec_subcat = mysqli_query($link,$SubCategoryNameQuery);
 												
-												while ($SubCategory = mysql_fetch_array($sql_exec_subcat)) {
+												while ($SubCategory = mysqli_fetch_array($sql_exec_subcat)) {
 													echo '<option value="';
 													echo $SubCategory['id'];
 													echo '"';
@@ -402,9 +402,9 @@
 								
 									<?php
 										$Echo = "SELECT projects_data_component_id FROM projects_data WHERE projects_data_component_id = ".(int)$_GET['edit']." ";
-										$sql_echo = mysql_query($Echo);
+										$sql_echo = mysqli_query($link,$Echo);
 										
-										if (mysql_num_rows($sql_echo) == 0) {
+										if (mysqli_num_rows($sql_echo) == 0) {
 											echo '<td></td>';
 											echo '<td></td>';
 											echo '<td></td>';
