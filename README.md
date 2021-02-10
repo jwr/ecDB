@@ -5,7 +5,7 @@
 
 ecDB, or Electronics Component DataBase, is a project that was created by [Nils Fredriksson](http://nilsf.se) aka. ElectricMan, and designed by [Buildlog](http://buildlog.se).
 
-In May 2018 ecDB.net was acquired by PartsBox (https://partsbox.io/) and users of the online ecDB service were offered to upgrade/migrate their data.
+In May 2018 ecDB.net was acquired by PartsBox (https://partsbox.com/) and users of the online ecDB service were offered to upgrade/migrate their data.
 
 PartsBox is an online app that lets you take control of your electronic parts inventory, BOM pricing, and small-scale production. It keeps track of where components are stored, what the current stock levels are, and which components are used in which projects/BOMs. PartsBox significantly expands what ecDB offered, with lots of new features and a blazingly fast parts search. It is available commercially (with features like BOM pricing, barcode scanning, sub-assemblies, file uploads and lots more), but there is also a free hobbyist/maker version, with everything the hobbyist needs.
 
