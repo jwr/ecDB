@@ -25,9 +25,9 @@ class NameSub {
 		$subcatto = $subcatfrom+99;
 
 		$SubCategoryName = "SELECT * FROM category_sub WHERE id BETWEEN ".$subcatfrom." AND ".$subcatto." ORDER by name ASC";
-		$sql_exec_subcatname = mysql_Query($SubCategoryName);
+		$sql_exec_subcatname = mysqli_query($link,$SubCategoryName);
 
-		while ($ShowDetailsSubCatname = mysql_fetch_array($sql_exec_subcatname)) {
+		while ($ShowDetailsSubCatname = mysqli_fetch_array($sql_exec_subcatname)) {
 			echo '<li>';
 			echo '<a href="category.php?subcat=';
 			echo $ShowDetailsSubCatname['id'];
@@ -39,8 +39,8 @@ class NameSub {
 			}
 
 			// Shows if component exists in category
-			$sql_exec_component_catname = mysql_query("SELECT category FROM data WHERE owner = $owner"); // Get the category ID from all components.
-			while($showDetailsComponentCatname = mysql_fetch_array($sql_exec_component_catname)) {
+			$sql_exec_component_catname = mysqli_query($link,"SELECT category FROM data WHERE owner = $owner"); // Get the category ID from all components.
+			while($showDetailsComponentCatname = mysqli_fetch_array($sql_exec_component_catname)) {
 				if($showDetailsComponentCatname['category'] == $ShowDetailsSubCatname['id']){ // Compare current category ID with components category ID.
 					echo ' class="isComponents"'; // What should be echoed if components exists in category?
 					break; // We only need one component to be in this category for this to be true.

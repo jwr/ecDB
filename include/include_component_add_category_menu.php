@@ -6,13 +6,13 @@ class AddMenuCat {
 		include('include/mysql_connect.php');
 		
 		$HeadCategoryNameQuery = "SELECT * FROM category_head ORDER by name ASC";
-		$sql_exec_headcat = mysql_Query($HeadCategoryNameQuery);
+		$sql_exec_headcat = mysqli_query($link,$HeadCategoryNameQuery);
 
 		echo '<option class="main_category" value="">';
 		echo ' - Category - ';
 		echo '</option>';
 		
-		while ($HeadCategory = mysql_fetch_array($sql_exec_headcat)) {
+		while ($HeadCategory = mysqli_fetch_array($sql_exec_headcat)) {
 			echo '<option class="main_category" value="';
 			echo $HeadCategory['id'];
 			echo '" disabled="disabled">';
@@ -23,9 +23,9 @@ class AddMenuCat {
 			$subcatto = $subcatfrom + 99;
 			
 			$SubCategoryNameQuery = "SELECT * FROM category_sub WHERE id BETWEEN ".$subcatfrom." AND ".$subcatto." ORDER by name ASC";
-			$sql_exec_subcat = mysql_Query($SubCategoryNameQuery);
+			$sql_exec_subcat = mysqli_query($link,$SubCategoryNameQuery);
 			
-			while ($SubCategory = mysql_fetch_array($sql_exec_subcat)) {
+			while ($SubCategory = mysqli_fetch_array($sql_exec_subcat)) {
 				echo '<option value="';
 				echo $SubCategory['id'];
 				echo '"';

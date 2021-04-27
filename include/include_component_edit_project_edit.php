@@ -9,9 +9,9 @@ class EditProj {
 		
 		$query = "SELECT projects_data.projects_data_project_id, projects_data.projects_data_quantity, projects_data.projects_data_project_id, projects_data.projects_data_component_id, projects.project_id, projects.project_name FROM projects_data, projects WHERE projects_data.projects_data_project_id = projects.project_id AND projects_data.projects_data_component_id = '$id' LIMIT 1";
 	 
-		$result = mysql_query($query) or die(mysql_error());
+		$result = mysqli_query($link,$query) or die(mysqli_error($link));
 		
-		while($row = mysql_fetch_array($result)){
+		while($row = mysqli_fetch_array($result)){
 					echo $row['project_name'];
 				echo '</td>';
 				echo '<td><input name="projquantedit[';
@@ -28,9 +28,9 @@ class EditProj {
 		
 		$query1 = "SELECT projects_data.projects_data_project_id, projects_data.projects_data_quantity, projects_data.projects_data_project_id, projects_data.projects_data_component_id, projects.project_id, projects.project_name FROM projects_data, projects WHERE projects_data.projects_data_project_id = projects.project_id AND projects_data.projects_data_component_id = '$id' LIMIT 1,18446744073709551615";
 	 
-		$result1 = mysql_query($query1) or die(mysql_error());
+		$result1 = mysqli_query($link,$query1) or die(mysqli_error($link));
 		
-		while($row1 = mysql_fetch_array($result1)){
+		while($row1 = mysqli_fetch_array($result1)){
 			echo '<tr>';
 				echo '<td></td>';
 				echo '<td></td>';
@@ -51,7 +51,7 @@ class EditProj {
 			
 		}
 		
-		if (mysql_num_rows($result) == 0) {
+		if (mysqli_num_rows($result) == 0) {
 			echo '</td>';
 			echo '<td></td>';
 			echo '<td></td>';

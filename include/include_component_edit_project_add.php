@@ -13,19 +13,19 @@ class AddMenuProj {
 		echo '</option>';
 		
 		$GetDataProject = "SELECT * FROM projects WHERE project_owner = '$owner'";
-		$sql = mysql_query($GetDataProject);
+		$sql = mysqli_query($link,$GetDataProject);
 		
-		while($row1 = mysql_fetch_array($sql)){
+		while($row1 = mysqli_fetch_array($sql)){
 		
 			$query1 = "SELECT projects_data.projects_data_project_id, projects_data.projects_data_component_id FROM projects_data RIGHT JOIN projects ON projects.project_id = projects_data.projects_data_project_id WHERE projects.project_owner = '$owner'";
 	 
-			$result1 = mysql_query($query1);
+			$result1 = mysqli_query($link,$query1);
 			
 			echo '<option value="';
 			echo $row1['project_id'];
 			echo '"';
 			
-			while($row2 = mysql_fetch_array($result1)){
+			while($row2 = mysqli_fetch_array($result1)){
 				if ($row2['projects_data_component_id'] == $id && $row2['projects_data_project_id'] == $row1['project_id']){
 					echo 'disabled="disabled"';
 				}

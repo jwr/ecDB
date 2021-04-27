@@ -4,7 +4,7 @@
 	$db_pass = "password";
 	$db_name = "databasename";
 
-	mysql_pconnect($db_host, $db_username, $db_pass) or die ("Could not connect connect to MySQL Server");
-	mysql_select_db($db_name) or die ("No database");
-	mysql_set_charset('utf8');
+	$link = mysqli_connect($db_host, $db_username, $db_pass) or die ("Could not connect to MySQL Server");
+	mysqli_select_db($link, $db_name) or die ("No database");
+	mysqli_set_charset($link, 'utf8');
 ?>

@@ -5,8 +5,8 @@
 	
 	// Get some personal data. ID, currency, measurement unit
 	$owner 	= 	$_SESSION['SESS_MEMBER_ID'];
-	$GetPersonal = mysql_query("SELECT currency, measurement FROM members WHERE member_id = ".$owner."");
-	$personal = mysql_fetch_assoc($GetPersonal);
+	$GetPersonal = mysqli_query($link,"SELECT currency, measurement FROM members WHERE member_id = ".$owner."");
+	$personal = mysqli_fetch_assoc($GetPersonal);
 ?>
 <!DOCTYPE HTML> 
 <html>

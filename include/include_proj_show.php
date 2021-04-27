@@ -6,13 +6,13 @@ class ProjectShow {
 		include('mysql_connect.php');
 		
 		$owner = $_SESSION['SESS_MEMBER_ID'];
-		$project_id = (int)mysql_real_escape_string($_GET["proj_id"]);
+		$project_id = (int)mysqli_real_escape_string($link,$_GET["proj_id"]);
 		
 		
 		if(isset($_GET['by'])) {
 		
-			$by			=	strip_tags(mysql_real_escape_string($_GET["by"]));
-			$order_q	=	strip_tags(mysql_real_escape_string($_GET["order"]));
+			$by			=	strip_tags(mysqli_real_escape_string($link,$_GET["by"]));
+			$order_q	=	strip_tags(mysqli_real_escape_string($link,$_GET["order"]));
 			
 			if($order_q == 'desc' or $order_q == 'asc'){
 				$order = $order_q;
@@ -35,8 +35,8 @@ class ProjectShow {
 			$GetDataComponentsAll = "SELECT * FROM projects_data, data WHERE owner = ".$owner." AND projects_data.projects_data_component_id = data.id AND projects_data.projects_data_project_id = ".$project_id." ORDER by name ASC";
 		}
 		
-		$sql_exec = mysql_Query($GetDataComponentsAll);
-		while($showDetails = mysql_fetch_array($sql_exec)) {
+		$sql_exec = mysqli_query($link,$GetDataComponentsAll);
+		while($showDetails = mysqli_fetch_array($sql_exec)) {
 			echo "<tr>";
 
 			echo '<td class="edit"><a href="edit_component.php?edit=';
@@ -61,9 +61,9 @@ class ProjectShow {
 				$subcatid = $showDetails['category'];
 				
 				$CategoryName = "SELECT * FROM category_head WHERE id = ".$head_cat_id."";
-				$sql_exec_catname = mysql_Query($CategoryName);
+				$sql_exec_catname = mysqli_query($link,$CategoryName);
 			
-				while($showDetailsCat = mysql_fetch_array($sql_exec_catname)) {
+				while($showDetailsCat = mysqli_fetch_array($sql_exec_catname)) {
 					$catname = $showDetailsCat['name'];
 				}
 				
@@ -123,8 +123,8 @@ class ProjectShow {
 			echo "<td>";
 			
 			$comp_id = $showDetails['id'];
-			$ShowQuant = mysql_query("SELECT projects_data_quantity FROM projects_data WHERE projects_data_component_id = '$comp_id' AND projects_data_project_id = '$project_id'");
-			$quant = mysql_fetch_assoc($ShowQuant);
+			$ShowQuant = mysqli_query($link,"SELECT projects_data_quantity FROM projects_data WHERE projects_data_component_id = '$comp_id' AND projects_data_project_id = '$project_id'");
+			$quant = mysqli_fetch_assoc($ShowQuant);
 	
 			$quantity = $quant['projects_data_quantity'];
 				if ($quantity == ""){

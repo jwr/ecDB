@@ -9,15 +9,15 @@ class AddMenuProj {
 		$id 	= 	(int)$_GET['edit'];
 		
 		$ProjectNameQuery = "SELECT * FROM projects WHERE project_owner = ".$owner." ORDER by project_name ASC";
-		$sql_exec_projname = mysql_Query($ProjectNameQuery);
+		$sql_exec_projname = mysqli_query($link,$ProjectNameQuery);
 		
 		$CategoryName = "SELECT * FROM projects_data WHERE component_id = ".$id." AND owner_id = ".$owner."";
-		$sql_exec_catname = mysql_Query($CategoryName);
+		$sql_exec_catname = mysqli_query($link,$CategoryName);
 		
-		while ($Project = mysql_fetch_array($sql_exec_projname)) {
+		while ($Project = mysqli_fetch_array($sql_exec_projname)) {
 			echo '<option ';
 
-			while($showDetailsCat = mysql_fetch_array($sql_exec_catname)) {
+			while($showDetailsCat = mysqli_fetch_array($sql_exec_catname)) {
 				$projid = $showDetailsCat['project_id'];
 			}
 			

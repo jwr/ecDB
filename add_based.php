@@ -7,12 +7,12 @@
 	$id 	= 	(int)$_GET['based'];
 
 	// Get data from the old component to inherit.
-	$GetDataComponent = mysql_query("SELECT * FROM data WHERE id = ".$id." AND owner = ".$owner.""); 
-	$executesql = mysql_fetch_assoc($GetDataComponent);
+	$GetDataComponent = mysqli_query($link,"SELECT * FROM data WHERE id = ".$id." AND owner = ".$owner.""); 
+	$executesql = mysqli_fetch_assoc($GetDataComponent);
 	
 	// Get some personal data. ID, currency, measurement unit
-	$GetPersonal = mysql_query("SELECT currency, measurement FROM members WHERE member_id = ".$owner.""); 
-	$personal = mysql_fetch_assoc($GetPersonal);
+	$GetPersonal = mysqli_query($link,"SELECT currency, measurement FROM members WHERE member_id = ".$owner.""); 
+	$personal = mysqli_fetch_assoc($GetPersonal);
 	
 	// If the owner of component !== $owner. Show error.
 	if ($executesql['owner'] !== $owner) {
@@ -28,19 +28,19 @@
 	}
 
 	// Get the head category name, based of the head category ID.
-	$GetHeadCatName = mysql_query("SELECT * FROM category_head WHERE id = ".$head_cat_id."");
-	$executesql_head_catname = mysql_fetch_assoc($GetHeadCatName);
+	$GetHeadCatName = mysqli_query($link,"SELECT * FROM category_head WHERE id = ".$head_cat_id."");
+	$executesql_head_catname = mysqli_fetch_assoc($GetHeadCatName);
 
 	// Sub category == $sub_cat_id
 	$sub_cat_id = $executesql['category'];
 	
 	// Get the sub category name, based of the sub category ID.
-	$GetSubCatName = mysql_query("SELECT * FROM category_sub WHERE id = ".$sub_cat_id."");
-	$executesql_sub_catname = mysql_fetch_assoc($GetSubCatName);
+	$GetSubCatName = mysqli_query($link,"SELECT * FROM category_sub WHERE id = ".$sub_cat_id."");
+	$executesql_sub_catname = mysqli_fetch_assoc($GetSubCatName);
 	
 	// Get ALL the sub categories.
 	$GetDataComponentsAll = "SELECT * FROM category_sub";
-	$sql_exec = mysql_Query($GetDataComponentsAll);
+	$sql_exec = mysqli_query($link,$GetDataComponentsAll);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
@@ -100,9 +100,9 @@
 									<select name="category">
 										<?php
 											$HeadCategoryNameQuery = "SELECT * FROM category_head ORDER by name ASC";
-											$sql_exec_headcat = mysql_Query($HeadCategoryNameQuery);
+											$sql_exec_headcat = mysqli_query($link,$HeadCategoryNameQuery);
 		
-											while ($HeadCategory = mysql_fetch_array($sql_exec_headcat)) {
+											while ($HeadCategory = mysqli_fetch_array($sql_exec_headcat)) {
 												
 												echo '<option class="main_category" value="';
 												echo $HeadCategory['id'];
@@ -114,9 +114,9 @@
 												$subcatto = $subcatfrom + 99;
 												
 												$SubCategoryNameQuery = "SELECT * FROM category_sub WHERE id BETWEEN ".$subcatfrom." AND ".$subcatto." ORDER by name ASC";
-												$sql_exec_subcat = mysql_Query($SubCategoryNameQuery);
+												$sql_exec_subcat = mysqli_query($link,$SubCategoryNameQuery);
 												
-												while ($SubCategory = mysql_fetch_array($sql_exec_subcat)) {
+												while ($SubCategory = mysqli_fetch_array($sql_exec_subcat)) {
 													echo '<option value="';
 													echo $SubCategory['id'];
 													echo '"';

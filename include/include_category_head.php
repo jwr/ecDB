@@ -19,7 +19,7 @@ class NameHead {
 		}
 
 		$CategoryName = "SELECT * FROM category_head ORDER by name ASC";
-		$sql_exec_catname = mysql_Query($CategoryName);
+		$sql_exec_catname = mysqli_query($link, $CategoryName);
 
 		echo '<li>';
 		echo '<a href="."';
@@ -33,7 +33,7 @@ class NameHead {
 		echo "All";
 		echo '</a></li> ';
 
-		while ($ShowDetailsCatname = mysql_fetch_array($sql_exec_catname)) {
+		while ($ShowDetailsCatname = mysqli_fetch_array($sql_exec_catname)) {
 			echo '<li>';
 			echo '<a href="category.php?cat=';
 			echo $ShowDetailsCatname['id'];
@@ -64,8 +64,8 @@ class NameHead {
 			}
 
 			// Shows if component exists in category.
-			$sql_exec_component_catname = mysql_query("SELECT category FROM data WHERE owner = $owner"); // Get the category ID from all components.
-			while($showDetailsComponentCatname = mysql_fetch_array($sql_exec_component_catname)) {
+			$sql_exec_component_catname = mysqli_query($link,"SELECT category FROM data WHERE owner = $owner"); // Get the category ID from all components.
+			while($showDetailsComponentCatname = mysqli_fetch_array($sql_exec_component_catname)) {
 
 				// Converts components sub category id to it's head category id.
 				$component_cat = $showDetailsComponentCatname['category'];

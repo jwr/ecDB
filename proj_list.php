@@ -34,8 +34,8 @@
 						$AddProj = new ProjAdd;
 						$AddProj->AddProj();
 						
-						$proj_query = mysql_query("SELECT * FROM projects WHERE project_owner= $owner");
-						if(mysql_num_rows($proj_query) == 0){
+						$proj_query = mysqli_query($link,"SELECT * FROM projects WHERE project_owner= $owner");
+						if(mysqli_num_rows($proj_query) == 0){
 							echo '<div class="message orange">To create a BOM-list (Bill Of Material) you have to first create a project. You will then be able to add your components to your project and automaticly create a BOM-list.</div>';
 						}
 					?>
